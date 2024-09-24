@@ -1,9 +1,112 @@
 .page-header__nav {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  width: 320px;
+  margin: 0 auto;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: repeat(5, 1fr);
 }
 
-.page-nav__bar {
+.page-header__logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+  height: 60px;
+  box-sizing: border-box;
+  padding: 12px 20px;
+
+  img {
+    max-width: 100%;
+    max-height: 100%;
+  }
+}
+
+.user-list {
+  grid-column: 2;
+
   display: flex;
   flex-direction: row;
+}
+
+.user-list__login {
+  display: block;
+  width: 60px;
+  height: 60px;
+
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-image: url('/images/login.svg');
+  border: none;
+}
+
+.user-list__cart {
+  display: block;
+  width: 60px;
+  height: 60px;
+
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-image: url('/images/cart.svg');
+  border: none;
+}
+
+.page-header__toggle {
+  width: 60px;
+  height: 60px;
+
+  background-color: transparent;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-image: url('/images/burger.svg');
+  border: none;
+}
+
+.site-menu {
+  grid-column: 1/3;
+  grid-row: 2/6;
+  box-sizing: border-box;
+  margin: 0;
+  display: none;
+  grid-template-columns: 1fr;
+}
+
+.site-menu--visible {
+  display: grid;
+}
+
+.site-menu__item {
+  position: relative; /* Для позиционирования псевдоэлементов */
+  width: 320px; /* Фиксированная ширина для центрирования */
+  margin: 0 auto; /* Центрируем элементы */
+
+  &:before,
+  &:after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100vw; /* Растягиваем на всю ширину экрана */
+    height: 1px;
+    background-color: #f0ebff;
+  }
+
+  &:before {
+    top: 0; /* Верхний бордер */
+  }
+
+  &:last-child:after {
+    bottom: -1px; /* Нижний бордер для последнего элемента */
+  }
+}
+
+.site-menu__link {
+  font-size: 12px;
+  font-weight: 500;
+
+  letter-spacing: 0;
+  display: flex;
+  justify-content: center; // Горизонтальное выравнивание по центру
+  align-items: center; // Вертикальное выравнивание по центру
+  width: 100%; // Занимает всю ширину родительского элемента
+  height: 100%;
 }

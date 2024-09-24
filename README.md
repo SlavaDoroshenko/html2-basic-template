@@ -4,9 +4,9 @@
 
 ## Начало
 
-Для работы с репозиторием на вашем компьютере потребуется _Git_ и _Node.js_. Перед началом работы убедитесь, что все программы работают. Для этого в терминале введите:
+Для работы с репозиторием на вашем компьютере потребуется _Git_ и *Node.js*. Перед началом работы убедитесь, что все программы работают. Для этого в терминале введите:
 
-- для _Git_
+- для *Git*
 
   ```shell
   git --version
@@ -22,7 +22,7 @@
 
   версия не важна. Главное, что git отреагировал и написал ответ
 
-- для _Node.js_
+- для *Node.js*
 
   ```shell
   node -v
@@ -42,23 +42,23 @@
 
 1. Клонируйте репозиторий:
 
-    ```shell
-    git clone git@github.com:htmlacademy/html2-basic-template.git
-    ```
+   ```shell
+   git clone git@github.com:htmlacademy/html2-basic-template.git
+   ```
 
 2. Установите зависимости проекта:
 
-    ```shell
-    npm ci
-    ```
+   ```shell
+   npm ci
+   ```
 
-    > В редких случаях в Windows отсутствует необходимый системный компонент, без которого установка зависимостей завершается ошибкой `Error: Cannot find module ../lightningcss.win32-x64-msvc.node`. Чтобы это исправить, нужно доустановить этот системный модуль: для [64-битной](https://aka.ms/vs/17/release/vc_redist.x64.exe) или [32-битной](https://aka.ms/vs/17/release/vc_redist.x86.exe) системы. После чего перезагрузиться и повторить установку зависимостей.
+   > В редких случаях в Windows отсутствует необходимый системный компонент, без которого установка зависимостей завершается ошибкой `Error: Cannot find module ../lightningcss.win32-x64-msvc.node`. Чтобы это исправить, нужно доустановить этот системный модуль: для [64-битной](https://aka.ms/vs/17/release/vc_redist.x64.exe) или [32-битной](https://aka.ms/vs/17/release/vc_redist.x86.exe) системы. После чего перезагрузиться и повторить установку зависимостей.
 
 3. Начните работу (должен запуститься браузер):
 
-    ```shell
-    npm start
-    ```
+   ```shell
+   npm start
+   ```
 
 ## Структура папок
 
@@ -159,12 +159,12 @@
 
 ```scss
 /* COMMON */
-@import "./common/variables.scss";
-@import "./common/global.scss";
-@import "./common/fonts.scss";
+@import './common/variables.scss';
+@import './common/global.scss';
+@import './common/fonts.scss';
 
 /* BLOCKS */
-@import "./blocks/header.scss";
+@import './blocks/header.scss';
 ```
 
 БЭМ-блоки импортируйте в секцию `/* BLOCKS */`.
@@ -314,3 +314,5 @@
 ```
 
 Таким образом, вы можете удобно организовать и внедрить сторонние библиотеки в ваш проект, сохраняя их структуру в папке `source/vendor/`.
+
+9:27

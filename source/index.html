@@ -11,22 +11,23 @@
   <body class="page__body">
     <header class="page__header page-header">
       <nav class="page-header__nav">
-        <div class="page-nav__bar">
-          <a href="#" class="page-header__logo">
-            <img
-              src="images/page-header__logo.svg"
-              width="32"
-              height="36"
-              alt="Drink2Go"
-              class="page-header__logo-image"
-            />
+        <a href="#" class="page-header__logo">
+          <img
+            src="images/page-header__logo.svg"
+            width="32"
+            height="36"
+            alt="Drink2Go"
+            class="page-header__logo-image"
+          />
+        </a>
+
+        <div class="page-nav__list user-list">
+          <a href="#" class="user-list__login">
+            <span class="visually-hidden">Войти</span>
           </a>
-
-          <div class="page-nav__list user-list">
-            <a href="#" class="user-list__login">Войти</a>
-            <a href="#" class="user-list__cart">Корзина</a>
-          </div>
-
+          <a href="#" class="user-list__cart"
+            ><span class="visually-hidden">Корзина</span></a
+          >
           <button class="page-header__toggle" type="button">
             <span class="visually-hidden">Открыть меню</span>
           </button>
@@ -53,7 +54,7 @@
     <main class="page__main page-main">
       <h1 class="visually-hidden">Drink2Go</h1>
       <section class="example-products">
-        <div class="example-products__wrapper">
+        <div class="wrapper example-products__wrapper">
           <ul class="example-products__list">
             <li class="example-products__item">
               <img
@@ -122,7 +123,7 @@
       </section>
 
       <section class="advantages">
-        <div class="advantages__wrapper">
+        <div class="wrapper advantages__wrapper">
           <span class="badge advantages__badge">Преимущества</span>
           <h2 class="advantages__title">Главные причины выбрать Drink2Go</h2>
           <ul class="advantages__list">
@@ -456,5 +457,7 @@
         </a>
       </div>
     </footer>
+
+    <script src="/scripts/index.js"></script>
   </body>
 </html>
