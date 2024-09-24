@@ -1,7 +1,16 @@
 /* GLOBAL */
 @import "./common/variables.scss";
+@import "./common/normalize";
 @import "./common/global.scss";
 @import "./common/fonts.scss";
 
 /* BLOCKS */
 @import "./blocks/header.scss";
+@import "./blocks/body.scss";
+@import "./blocks/example-products.scss";
+@import "./blocks/catalog.scss";
+@import "./blocks/footer.scss";
+@import "./blocks/page.scss";
+@import "./blocks/site-menu.scss";
+@import "./blocks/button.scss";
+@import "./blocks/visually-hidden.scss";

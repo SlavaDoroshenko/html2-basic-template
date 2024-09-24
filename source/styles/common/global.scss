@@ -1,1 +1,26 @@
 /* здесь используйте глобальные селекторы img, body, html и так далее */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.badge {
+  color: $violet-color;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}

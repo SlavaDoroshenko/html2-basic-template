@@ -1,5 +1,9 @@
-.header {
-  background-color: #663399;
-  color: #ffffff;
-  padding: 10px 15px;
+.page-header__nav {
+  display: flex;
+  flex-direction: column;
+}
+
+.page-nav__bar {
+  display: flex;
+  flex-direction: row;
 }
