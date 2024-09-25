@@ -1,20 +1,19 @@
 .swiper {
   width: 100vw;
-  & [class^="swiper-button-"]::after{
+  min-width: 320px;
+  & [class^='swiper-button-']::after {
     font-size: 20px;
     color: $violet-color;
-}
+  }
 
-& [class^="swiper-button-"]{
-  width: 0px;
-  bottom: 50%;
-}
+  & [class^='swiper-button-'] {
+    width: 0px;
+    bottom: 50%;
+  }
 }
 
 .swiper-button-prev,
 .swiper-button-next {
-
   border: none;
   background-color: transparent;
 }
-

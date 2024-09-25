@@ -6,12 +6,17 @@
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <link rel="preload" href="#" type="font/woff2" as="font" />
     <link rel="stylesheet" href="styles/styles.css" />
-    <script src="scripts/index.js" defer></script>
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
     />
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="scripts/index.js" defer></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"
+      defer
+    ></script>
+    <link rel="stylesheet" href="vendor/leaflet/leaflet.css" />
+    <link rel="stylesheet" href="vendor/leaflet/leaflet.js" />
   </head>
   <body class="page__body">
     <header class="page__header page-header">
@@ -73,7 +78,7 @@
                   class="example-products__img"
                 />
                 <span class="badge example-products__badge">Новинка!</span>
-                <h3 class="example-products__title">Декаф Флэт <br>Уайт</h3>
+                <h3 class="example-products__title">Декаф Флэт <br />Уайт</h3>
                 <p class="example-products__description">
                   Свежесваренный кофе без кофеина из Эфиопии с натуральным
                   фермерским молоком — то, что нужно для расслабления после
@@ -82,11 +87,13 @@
                 <div class="example-products__order">
                   <div class="example-products__prices">
                     <span class="example-products__old-price">295₽</span>
-                  <span class="example-products__new-price">225₽</span>
+                    <span class="example-products__new-price">225₽</span>
                   </div>
 
-                <button class="button example-products__button">Заказать</button>
-              </div>
+                  <button class="button example-products__button">
+                    Заказать
+                  </button>
+                </div>
               </div>
             </li>
             <li
@@ -110,11 +117,13 @@
                 <div class="example-products__order">
                   <div class="example-products__prices">
                     <span class="example-products__old-price">285₽</span>
-                  <span class="example-products__new-price">265₽</span>
+                    <span class="example-products__new-price">265₽</span>
                   </div>
 
-                <button class="button example-products__button">Заказать</button>
-              </div>
+                  <button class="button example-products__button">
+                    Заказать
+                  </button>
+                </div>
               </div>
             </li>
             <li
@@ -138,11 +147,13 @@
                 <div class="example-products__order">
                   <div class="example-products__prices">
                     <span class="example-products__old-price">395₽</span>
-                  <span class="example-products__new-price">375₽</span>
+                    <span class="example-products__new-price">375₽</span>
                   </div>
 
-                <button class="button example-products__button">Заказать</button>
-              </div>
+                  <button class="button example-products__button">
+                    Заказать
+                  </button>
+                </div>
               </div>
             </li>
           </ul>
@@ -199,97 +210,182 @@
       </section>
 
       <section class="catalog">
-        <div class="catalog__wrapper">
+        <div class="wrapper catalog__wrapper">
           <span class="badge catalog__badge">Каталог</span>
           <h2 class="catalog__title">Каталог кофейных напитков</h2>
           <form class="catalog__form">
             <fieldset class="catalog__fieldset">
               <legend class="catalog__legend">Цена</legend>
-              <input
-                class="catalog__input-range"
-                type="range"
-                min="0"
-                max="123"
-                value="100"
-              />
-              <span class="catalog__price-value catalog__price-value--min"
-                >0</span
-              >
-              -
-              <span class="catalog__price-value catalog__price-value--max"
-                >123</span
-              >
+              <div class="range-slider slider">
+                <div class="slider-bar" style="margin-right: 50px">
+                  <button class="slider-thumb" type="button">
+                    <span class="visually-hidden">Ручка минимальной цены</span>
+                  </button>
+                  <button class="slider-thumb" type="button">
+                    <span class="visually-hidden">Ручка максимальной цены</span>
+                  </button>
+                </div>
+              </div>
+              <div class="price-values">
+                <input
+                  class="range-input"
+                  type="number"
+                  name="price-from"
+                  min="0"
+                  max="500"
+                  step="1"
+                  placeholder="0"
+                />
+                <input
+                  class="range-input"
+                  type="number"
+                  name="price-from"
+                  min="0"
+                  max="500"
+                  step="1"
+                  placeholder="123"
+                />
+              </div>
             </fieldset>
             <fieldset class="catalog__fieldset">
               <legend class="catalog__legend">Наличие молока</legend>
-              <input type="radio" id="milk-any" name="milk" checked />
+              <input
+                class="catalog__radio"
+                type="radio"
+                id="milk-any"
+                name="milk"
+                checked
+              />
               <label for="milk-any" class="catalog__label-radio">Неважно</label
               ><br />
-              <input type="radio" id="milk-animal" name="milk" />
+              <input
+                class="catalog__radio"
+                type="radio"
+                id="milk-animal"
+                name="milk"
+              />
               <label for="milk-animal" class="catalog__label-radio"
                 >Только животное</label
               ><br />
-              <input type="radio" id="milk-vegan" name="milk" />
+              <input
+                class="catalog__radio"
+                type="radio"
+                id="milk-vegan"
+                name="milk"
+              />
               <label for="milk-vegan" class="catalog__label-radio"
                 >Только растительное</label
               ><br />
-              <input type="radio" id="milk-none" name="milk" />
+              <input
+                class="catalog__radio"
+                type="radio"
+                id="milk-none"
+                name="milk"
+                disabled
+              />
               <label for="milk-none" class="catalog__label-radio"
                 >Без молока</label
               >
             </fieldset>
             <fieldset class="catalog__fieldset">
               <legend class="catalog__legend">Страна произрастания</legend>
-              <input
-                type="checkbox"
-                id="country-brazil"
-                name="country"
-                checked
-              />
-              <label for="country-brazil" class="catalog__label-checkbox"
-                >Бразилия</label
-              ><br />
-              <input type="checkbox" id="country-ethiopia" name="country" />
-              <label for="country-ethiopia" class="catalog__label-checkbox"
-                >Эфиопия</label
-              ><br />
-              <input type="checkbox" id="country-columbia" name="country" />
-              <label for="country-columbia" class="catalog__label-checkbox"
-                >Колумбия</label
-              ><br />
-              <input type="checkbox" id="country-costarica" name="country" />
-              <label for="country-costarica" class="catalog__label-checkbox"
-                >Коста-Рика</label
-              ><br />
-              <input type="checkbox" id="country-peru" name="country" />
-              <label for="country-peru" class="catalog__label-checkbox"
-                >Перу</label
-              >s
+
+              <div class="catalog__checkbox-container">
+                <label class="catalog__checkbox switch">
+                  <input
+                    type="checkbox"
+                    id="country-brazil"
+                    name="country"
+                    checked
+                  />
+                  <span class="catalog__checkbox-slider slider"></span>
+                </label>
+                <label for="country-brazil" class="catalog__label-checkbox"
+                  >Бразилия</label
+                >
+              </div>
+
+              <div class="catalog__checkbox-container">
+                <label class="catalog__checkbox switch">
+                  <input type="checkbox" id="country-ethiopia" name="country" />
+                  <span class="catalog__checkbox-slider slider"></span>
+                </label>
+                <label for="country-ethiopia" class="catalog__label-checkbox"
+                  >Эфиопия</label
+                >
+              </div>
+
+              <div class="catalog__checkbox-container">
+                <label class="catalog__checkbox switch">
+                  <input type="checkbox" id="country-columbia" name="country" />
+                  <span class="catalog__checkbox-slider slider"></span>
+                </label>
+                <label for="country-columbia" class="catalog__label-checkbox"
+                  >Колумбия</label
+                >
+              </div>
+
+              <div class="catalog__checkbox-container">
+                <label class="catalog__checkbox switch">
+                  <input
+                    type="checkbox"
+                    id="country-costarica"
+                    name="country"
+                  />
+                  <span class="catalog__checkbox-slider slider"></span>
+                </label>
+                <label for="country-costarica" class="catalog__label-checkbox"
+                  >Коста-Рика</label
+                >
+              </div>
+
+              <div class="catalog__checkbox-container">
+                <label class="catalog__checkbox switch">
+                  <input
+                    type="checkbox"
+                    id="country-peru"
+                    name="country"
+                    disabled
+                  />
+                  <span class="catalog__checkbox-slider slider"></span>
+                </label>
+                <label for="country-peru" class="catalog__label-checkbox"
+                  >Перу</label
+                >
+              </div>
             </fieldset>
-            <button type="submit" class="button catalog__button">
-              Применить
-            </button>
-            <button
-              type="reset"
-              class="button catalog__button catalog__button--secondary"
-            >
-              Сбросить
-            </button>
+
+            <div class="catalog__filter-buttons">
+              <button type="submit" class="button catalog__button">
+                Применить
+              </button>
+              <button
+                type="reset"
+                class="catalog__button catalog__button--secondary button"
+              >
+                Сбросить
+              </button>
+            </div>
           </form>
 
-          <span class="catalog__sort-title">Сортировка:</span>
-          <select name="catalog__sort" id="catalog__sort" class="catalog__sort">
-            <option value="default">по умолчанию</option>
-            <option value="price-asc">по цене (от дешевых к дорогим)</option>
-            <option value="price-desc">по цене (от дорогих к дешевым)</option>
-            <option value="name-asc">по названию (А-Я)</option>
-            <option value="name-desc">по названию (Я-А)</option>
-          </select>
+          <div class="catalog__sort-container">
+            <span class="catalog__sort-title">Сортировка:</span>
+            <select
+              name="catalog__sort"
+              id="catalog__sort"
+              class="catalog__sort"
+            >
+              <option value="default">по умолчанию</option>
+              <option value="price-desc">сначала дорогие</option>
+              <option value="price-asc">сначал дешёвые</option>
+              <option value="rating-desc">высокий рейтинг</option>
+            </select>
+          </div>
 
           <ul class="catalog__list">
             <li class="catalog__item">
               <img
-                src="images/flat_white_img.png"
+                src="images/coffee-can-1.png"
                 alt="src"
                 width="130"
                 height="188"
@@ -299,12 +395,22 @@
               <p class="catalog-item__discription">
                 Кофе без кофеина из Эфиопии с натуральным фермерским молоком
               </p>
-              <span class="catalog-item__cost">225 ₽</span>
-              <button class="button catalog-item__button">В корзину</button>
+              <div class="catalog__price-container">
+                <span class="catalog-item__cost">225 ₽</span>
+                <button class="button catalog-item__button">
+                  <img
+                    src="images/add-cart.svg"
+                    alt="Корзина"
+                    width="20"
+                    height="16"
+                  />
+                  В корзину
+                </button>
+              </div>
             </li>
             <li class="catalog__item">
               <img
-                src="images/flat_white_img.png"
+                src="images/coffee-can-2.png"
                 alt="src"
                 width="130"
                 height="188"
@@ -314,12 +420,22 @@
               <p class="catalog-item__discription">
                 Кофе без кофеина из Эфиопии с натуральным фермерским молоком
               </p>
-              <span class="catalog-item__cost">225 ₽</span>
-              <button class="catalog-item__button">В корзину</button>
+              <div class="catalog__price-container">
+                <span class="catalog-item__cost">225 ₽</span>
+                <button class="button catalog-item__button">
+                  <img
+                    src="images/add-cart.svg"
+                    alt="Корзина"
+                    width="20"
+                    height="16"
+                  />
+                  В корзину
+                </button>
+              </div>
             </li>
             <li class="catalog__item">
               <img
-                src="images/flat_white_img.png"
+                src="images/coffee-can-3.png"
                 alt="src"
                 width="130"
                 height="188"
@@ -329,12 +445,21 @@
               <p class="catalog-item__discription">
                 Кофе без кофеина из Эфиопии с натуральным фермерским молоком
               </p>
-              <span class="catalog-item__cost">225 ₽</span>
-              <button class="button catalog-item__button">В корзину</button>
+              <div class="catalog__price-container">
+                <span class="catalog-item__cost">225 ₽</span>
+                <button class="button catalog-item__button">
+                  <img
+                    src="images/add-cart.svg"
+                    alt="Корзина"
+                    width="20"
+                    height="16"
+                  />В корзину
+                </button>
+              </div>
             </li>
             <li class="catalog__item">
               <img
-                src="images/flat_white_img.png"
+                src="images/coffee-can-4.png"
                 alt="src"
                 width="130"
                 height="188"
@@ -344,12 +469,21 @@
               <p class="catalog-item__discription">
                 Кофе без кофеина из Эфиопии с натуральным фермерским молоком
               </p>
-              <span class="catalog-item__cost">225 ₽</span>
-              <button class="button catalog-item__button">В корзину</button>
+              <div class="catalog__price-container">
+                <span class="catalog-item__cost">225 ₽</span>
+                <button class="button catalog-item__button">
+                  <img
+                    src="images/add-cart.svg"
+                    alt="Корзина"
+                    width="20"
+                    height="16"
+                  />В корзину
+                </button>
+              </div>
             </li>
             <li class="catalog__item">
               <img
-                src="images/flat_white_img.png"
+                src="images/coffee-can-5.png"
                 alt="src"
                 width="130"
                 height="188"
@@ -359,12 +493,21 @@
               <p class="catalog-item__discription">
                 Кофе без кофеина из Эфиопии с натуральным фермерским молоком
               </p>
-              <span class="catalog-item__cost">225 ₽</span>
-              <button class="button catalog-item__button">В корзину</button>
+              <div class="catalog__price-container">
+                <span class="catalog-item__cost">225 ₽</span>
+                <button class="button catalog-item__button">
+                  <img
+                    src="images/add-cart.svg"
+                    alt="Корзина"
+                    width="20"
+                    height="16"
+                  />В корзину
+                </button>
+              </div>
             </li>
             <li class="catalog__item">
               <img
-                src="images/flat_white_img.png"
+                src="images/coffee-can-6.png"
                 alt="src"
                 width="130"
                 height="188"
@@ -374,26 +517,39 @@
               <p class="catalog-item__discription">
                 Кофе без кофеина из Эфиопии с натуральным фермерским молоком
               </p>
-              <span class="catalog-item__cost">225 ₽</span>
-              <button class="button catalog-item__button">В корзину</button>
+              <div class="catalog__price-container">
+                <span class="catalog-item__cost">225 ₽</span>
+                <button class="button catalog-item__button">
+                  <img
+                    src="images/add-cart.svg"
+                    alt="Корзина"
+                    width="20"
+                    height="16"
+                  />В корзину
+                </button>
+              </div>
             </li>
           </ul>
 
           <ul class="pagination__list">
             <li class="pagination__item pagination__item--prev">
-              <a class="pagination__link" href="#">Prev</a>
-            </li>
-            <li class="pagination__item pagination__item--active">
-              <a class="pagination__link" href="#">1</a>
+              <a class="pagination__link" href="#"
+                ><span class="visually-hidden">Prev</span></a
+              >
             </li>
             <li class="pagination__item">
+              <a class="pagination__link" href="#">1</a>
+            </li>
+            <li class="pagination__item pagination__item--active">
               <a class="pagination__link" href="#">2</a>
             </li>
             <li class="pagination__item">
               <a class="pagination__link" href="#">3</a>
             </li>
             <li class="pagination__item pagination__item--next">
-              <a class="pagination__link" href="#">Next</a>
+              <a class="pagination__link" href="#"
+                ><span class="visually-hidden">Next</span></a
+              >
             </li>
           </ul>
         </div>

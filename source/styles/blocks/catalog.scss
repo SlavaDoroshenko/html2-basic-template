@@ -2,10 +2,460 @@
   background-color: #f8f8f8;
 }
 
-.catalog__list {
+.catalog__wrapper {
+  padding: 20px;
+}
+
+.catalog__badge {
+  display: block;
   text-align: center;
 }
 
-.catalog__item {
+.catalog__title {
+  text-align: center;
+  margin: 0;
+}
+
+.catalog__fieldset {
+  border: none;
+  padding: 10px 0;
+  margin: 0;
+}
+
+.catalog__legend {
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.range-slider {
+  position: relative;
+  width: 100%;
+  margin: 20px 0;
+}
+
+/* Полоска слайдера */
+.slider-bar {
+  position: relative;
+  width: 100%;
+  // height: 2px; /* Высота для серой части */
+  background-color: transparent; /* Убираем фон, чтобы задать градиент через псевдоэлемент */
+  display: flex;
+  align-items: center;
+}
+
+.slider-bar::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px; /* Белая тонкая линия */
+  background: linear-gradient(
+    to right,
+    transparent 0%,
+    transparent 80%,
+    #e2e2e2 80%,
+    #e2e2e2 100%
+  );
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.slider-bar::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 4px; /* Серая линия между ползунками */
+  background: linear-gradient(
+    to right,
+    $violet-color 0%,
+    $violet-color 80%,
+    transparent 80%,
+    transparent 100%
+  );
+  top: 0;
+  left: 0;
+  z-index: 0;
+}
+
+/* Ручки слайдера */
+.slider-thumb {
+  position: absolute;
+  width: 24px;
+  height: 24px;
   background-color: #ffffff;
+  border: 2px solid $violet-color;
+  border-radius: 50%;
+  cursor: default;
+  pointer-events: none; /* Отключаем возможность перетаскивать ручки */
+  z-index: 2;
+}
+
+.slider-thumb:first-of-type {
+  left: -1%; /* Расположена слева, минимальная цена */
+}
+
+.slider-thumb:last-of-type {
+  right: 19%; /* Расположена справа, максимальная цена */
+}
+
+.price-values {
+  display: flex;
+  flex-direction: row;
+  margin: 0; /* Убираем возможные внешние отступы */
+  padding: 0;
+  justify-content: space-between;
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    right: 50%;
+    width: 8px;
+    height: 2px; /* Высота полоски */
+    background-color: #e2e2e2; /* Цвет полоски */
+    z-index: 1; /* Чтобы полоска была под элементами range-input */
+    transform: translateY(-50%);
+  }
+}
+
+.range-input {
+  text-align: center;
+  border: 2px $violet-color solid;
+  border-radius: 4px;
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20px;
+  color: black;
+  width: 98px;
+  padding: 8px 10px;
+  appearance: none;
+
+  &::placeholder {
+    color: #bdbdbd; /* Задаем нужный цвет */
+    opacity: 1; /* Чтобы цвет не был полупрозрачным */
+  }
+
+  &:focus::placeholder {
+    color: transparent; /* Прозрачный цвет для скрытия placeholder */
+  }
+
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  /* Убираем стрелки в Firefox */
+  -moz-appearance: textfield;
+}
+
+/* Скрываем стандартные радио-кнопки */
+input[type='radio'] {
+  position: absolute;
+  opacity: 0;
+}
+
+/* Стили для контейнера и текста */
+.catalog__label-radio {
+  display: inline-flex;
+  align-items: center;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  color: #4a4a4a;
+  cursor: pointer;
+  margin-bottom: 12px;
+  position: relative;
+}
+
+.catalog__label-radio::before {
+  content: '';
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin-right: 12px;
+  border-radius: 50%;
+  border: 2px solid #d3d3d3;
+  background-color: transparent;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.catalog__radio:checked + .catalog__label-radio::before {
+  border-color: #a288ff; /* Фиолетовый ободок */
+  background-color: #a288ff;
+  box-shadow: inset 0 0 0 2px #ffffff; /* Центральная точка */
+}
+
+/* Устанавливаем стиль для последнего элемента (неактивного) */
+.catalog__radio:disabled + .catalog__label-radio {
+  color: #d3d3d3; /* Цвет текста */
+}
+
+.catalog__radio:disabled + .catalog__label-radio::before {
+  border-color: #d3d3d3; /* Цвет кружка */
+  background-color: transparent;
+  cursor: not-allowed;
+}
+
+/* Добавляем дополнительное стилизованное состояние при наведении */
+.catalog__radio:not(:disabled):hover + .catalog__label-radio::before {
+  border-color: #a288ff;
+}
+
+.catalog__checkbox-container {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  &:last-child {
+    margin: 0; /* Убираем верхний отступ у первого контейнера */
+  }
+}
+
+/* Контейнер для переключателя */
+.catalog__checkbox {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 28px;
+  margin-right: 10px;
+}
+
+/* Скрываем стандартный checkbox */
+.catalog__checkbox input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* Стиль для слайдера (переключателя) */
+.catalog__checkbox-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  border-radius: 34px;
+  transition: 0.4s;
+}
+
+.catalog__checkbox-slider:before {
+  position: absolute;
+  content: '';
+  height: 20px;
+  width: 20px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  border-radius: 50%;
+  transition: 0.4s;
+}
+
+/* Когда checkbox включен (checked) */
+.catalog__checkbox input:checked + .catalog__checkbox-slider {
+  background-color: #7e57c2;
+}
+
+.catalog__checkbox input:checked + .catalog__checkbox-slider:before {
+  transform: translateX(22px);
+}
+
+/* Когда переключатель отключен (disabled) */
+.catalog__checkbox input:disabled + .catalog__checkbox-slider {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.catalog__checkbox input:disabled + .catalog__checkbox-slider:before {
+  background-color: #f5f5f5;
+}
+
+/* Текст меток */
+.catalog__label-checkbox {
+  font-size: 16px;
+  vertical-align: middle;
+}
+
+.catalog__filter-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  & .catalog__button {
+    &--secondary {
+      color: $violet-color;
+      background-color: #ffffff;
+    }
+  }
+}
+
+.catalog__sort-container {
+  width: 280px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.catalog__sort {
+  width: 190;
+  padding: 10px;
+  font-size: 16px;
+  background-color: transparent; /* Light background color */
+  border: none;
+  border-radius: 8px; /* Rounded corners */ /* Soft shadow */
+  appearance: none; /* Remove default arrow */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  text-align: left;
+  color: #333; /* Font color */
+  background-image: linear-gradient(45deg, transparent 50%, #6c63ff 50%),
+    linear-gradient(135deg, #6c63ff 50%, transparent 50%);
+  background-position: calc(100% - 15px) calc(1em + 2px),
+    calc(100% - 10px) calc(1em + 2px);
+  background-size: 5px 5px, 5px 5px;
+  background-repeat: no-repeat;
+}
+
+.catalog__sort option {
+  padding: 10px;
+  font-size: 16px;
+}
+
+.catalog__sort:focus {
+  outline: none;
+  border: 1px solid #6c63ff; /* Border on focus */
+}
+
+.catalog__sort-title {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+  font-size: 16px;
+  color: #333333;
+}
+
+.catalog__item {
+  display: flex;
+  flex-direction: column;
+  display: flex;
+  align-items: flex-start;
+  background-color: #ffffff;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.catalog-item__image {
+  padding-top: 20px;
+  align-self: center;
+}
+
+.catalog-item__title {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 32px;
+  margin: 0;
+}
+
+.catalog__price-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+  width: 100%;
+}
+
+.catalog-item__cost {
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 32px;
+}
+
+/* Основные стили для списка пагинации */
+.pagination__list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Стили для каждого элемента пагинации */
+.pagination__item {
+  width: 34px; /* Фиксированная ширина */
+  height: 34px; /* Фиксированная высота */
+  display: flex; /* Используем Flexbox для центрирования содержимого */
+  align-items: center; /* Центрируем по вертикали */
+  justify-content: center; /* Центрируем по горизонтали */
+  background-color: #f0f0f0; /* Пример заднего фона */
+  border-radius: 4px; /* Пример скругленных углов */
+  cursor: pointer; /* Указатель при наведении */
+  text-align: center; /* Центрируем текст */
+}
+
+/* Стили для активного элемента */
+.pagination__item--active a {
+  font-weight: bold;
+  color: #000;
+}
+
+/* Общие стили для ссылок пагинации */
+.pagination__link {
+  display: inline-block;
+  padding: 10px 15px;
+  text-decoration: none;
+  color: #6c63ff; /* Цвет ссылок */
+  font-size: 16px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+/* Стили для элемента "Prev" и "Next" */
+.pagination__item--prev a,
+.pagination__item--next a {
+  color: #6c63ff;
+}
+
+/* Стили при наведении на ссылки */
+.pagination__link:hover {
+  background-color: transparent; /* Цвет фона при наведении */
+}
+
+.pagination__item {
+  background-color: #ffffff;
+  border-radius: 4px;
+}
+
+/* Стили для активного элемента (например, текущей страницы) */
+.pagination__item--active .pagination__link {
+  background-color: #f8f8f8;
+  color: #000;
+  cursor: default;
+  pointer-events: none; /* Убираем возможность клика на активный элемент */
+}
+
+/* Стили для стрелок "Prev" и "Next" */
+.pagination__item--prev a::before,
+.pagination__item--next a::after {
+  content: '';
+  display: inline-block;
+  border: solid #6c63ff;
+  border-width: 0 2px 2px 0;
+  padding: 5px;
+}
+
+.pagination__item--prev a::before {
+  transform: rotate(135deg);
+}
+
+.pagination__item--next a::after {
+  transform: rotate(-45deg);
 }
