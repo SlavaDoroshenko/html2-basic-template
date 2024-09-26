@@ -15,15 +15,24 @@
       src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"
       defer
     ></script>
-    <link rel="stylesheet" href="vendor/leaflet/leaflet.css" />
-    <link rel="stylesheet" href="vendor/leaflet/leaflet.js" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+      crossorigin=""
+    />
+    <script
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+      crossorigin=""
+    ></script>
   </head>
   <body class="page__body">
     <header class="page__header page-header">
       <nav class="page-header__nav">
         <a href="#" class="page-header__logo">
           <img
-            src="images/page-header__logo.svg"
+            src="./images/page-header__logo.svg"
             width="32"
             height="36"
             alt="Drink2Go"
@@ -36,8 +45,8 @@
             <span class="visually-hidden">Войти</span>
           </a>
           <a href="#" class="user-list__cart"
-            ><span class="visually-hidden">Корзина</span></a
-          >
+            ><span class="visually-hidden">Корзина</span>
+          </a>
           <button class="page-header__toggle" type="button">
             <span class="visually-hidden">Открыть меню</span>
           </button>
@@ -71,7 +80,7 @@
             >
               <div class="example-products__card">
                 <img
-                  src="images/flat_white_img.png"
+                  src="./images/flat_white_img@2x.png"
                   alt="Декаф Флэт Уайт"
                   width="280px"
                   height="280px"
@@ -101,7 +110,7 @@
             >
               <div class="example-products__card">
                 <img
-                  src="images/lavender_img.png"
+                  src="./images/lavender_img@2x.png"
                   alt="Лавандовый Латте"
                   width="280px"
                   height="280px"
@@ -131,7 +140,7 @@
             >
               <div class="example-products__card">
                 <img
-                  src="images/espresso_img.png"
+                  src="./images/espresso_img@2x.png"
                   alt="Тройной Эспрессо"
                   width="280px"
                   height="280px"
@@ -173,6 +182,8 @@
               <img
                 src="images/icon-speed.svg"
                 alt=""
+                width="52"
+                height="56"
                 class="advantages__image"
               />
               <h3 class="advantages-item__title">Скорость</h3>
@@ -181,7 +192,13 @@
               </p>
             </li>
             <li class="advantages__item">
-              <img src="images/icon-fit.svg" alt="" class="advantages__image" />
+              <img
+                src="images/icon-fit.svg"
+                alt=""
+                width="52"
+                height="56"
+                class="advantages__image"
+              />
               <h3 class="advantages-item__title">Удобство</h3>
               <p class="advantages__text">
                 Легко помещается и в карман, и в маленькую сумочку
@@ -191,6 +208,8 @@
               <img
                 src="images/icon-energy.svg"
                 alt=""
+                width="52"
+                height="56"
                 class="advantages__image"
               />
               <h3 class="advantages-item__title">Бодрость</h3>
@@ -199,7 +218,13 @@
               </p>
             </li>
             <li class="advantages__item">
-              <img src="images/icon-eco.svg" alt="" class="advantages__image" />
+              <img
+                src="images/icon-eco.svg"
+                width="52"
+                height="56"
+                alt=""
+                class="advantages__image"
+              />
               <h3 class="advantages-item__title">Экологичность</h3>
               <p class="advantages__text">
                 Вся упаковка сделана из перерабатываемых материалов
@@ -385,7 +410,7 @@
           <ul class="catalog__list">
             <li class="catalog__item">
               <img
-                src="images/coffee-can-1.png"
+                src="images/coffee-can-1@2x.png"
                 alt="src"
                 width="130"
                 height="188"
@@ -410,7 +435,7 @@
             </li>
             <li class="catalog__item">
               <img
-                src="images/coffee-can-2.png"
+                src="images/coffee-can-2@2x.png"
                 alt="src"
                 width="130"
                 height="188"
@@ -435,7 +460,7 @@
             </li>
             <li class="catalog__item">
               <img
-                src="images/coffee-can-3.png"
+                src="images/coffee-can-3@2x.png"
                 alt="src"
                 width="130"
                 height="188"
@@ -459,7 +484,7 @@
             </li>
             <li class="catalog__item">
               <img
-                src="images/coffee-can-4.png"
+                src="images/coffee-can-4@2x.png"
                 alt="src"
                 width="130"
                 height="188"
@@ -483,7 +508,7 @@
             </li>
             <li class="catalog__item">
               <img
-                src="images/coffee-can-5.png"
+                src="images/coffee-can-5@2x.png"
                 alt="src"
                 width="130"
                 height="188"
@@ -507,7 +532,7 @@
             </li>
             <li class="catalog__item">
               <img
-                src="images/coffee-can-6.png"
+                src="images/coffee-can-6@2x.png"
                 alt="src"
                 width="130"
                 height="188"
@@ -555,41 +580,55 @@
         </div>
       </section>
 
-      <section class="map">
-        <div class="map__wrapper">
-          <img src="images/Map.png" alt="Карта" class="map__image" />
-        </div>
-      </section>
+      <section class="map" id="map"></section>
     </main>
 
     <footer class="page__foter page-footer">
-      <div class="page-footer__wrapper">
+      <div class="wrapper page-footer__wrapper">
         <section class="socials">
           <img
             src="images/page-footer__logo.svg"
             alt="Drink2Go"
             class="page-footer__logo"
+            width="82"
+            height="36"
           />
 
           <ul class="socials__list">
             <li class="socials__item">
               <a href="#" class="socials__link"
-                ><img src="images/vk.svg" alt="Вконтакте" class="socials__icon"
+                ><img
+                  src="images/vk.svg"
+                  width="20"
+                  height="20"
+                  alt="Вконтакте"
+                  class="socials__icon"
               /></a>
+
+            </li>
+            <li class="socials__item">
               <a href="#" class="socials__link"
                 ><img
                   src="images/pinterest.svg"
+                  width="20"
+                  height="20"
                   alt="Pinterest"
                   class="socials__icon"
               /></a>
-              <a href="#" class="socials__link"
-                ><img src="images/ok.svg" alt="OK" class="socials__icon"
-              /></a>
+              </a>
             </li>
+            <li class="socials__item"><a href="#" class="socials__link"
+              ><img
+                src="images/ok.svg"
+                width="20"
+                height="20"
+                alt="OK"
+                class="socials__icon"
+            /></li>
           </ul>
         </section>
 
-        <section class="page-footer__site-menu">
+        <section class="site-menu--footer">
           <h4 class="footer__title">Интернет-магазин</h4>
           <nav class="page-foter__nav">
             <ul class="page-foter__list">
