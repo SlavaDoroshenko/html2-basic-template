@@ -31,13 +31,21 @@
     <header class="page__header page-header">
       <nav class="page-header__nav">
         <a href="#" class="page-header__logo">
-          <img
-            src="./images/page-header__logo.svg"
-            width="32"
-            height="36"
-            alt="Drink2Go"
-            class="page-header__logo-image"
-          />
+          <picture>
+            <source
+              media="(min-width: 768px)"
+              srcset="./images/logo-header--medium.svg"
+              width="82"
+              height="36"
+            />
+            <img
+              src="./images/page-header__logo.svg"
+              width="32"
+              height="36"
+              alt="Drink2Go"
+              class="page-header__logo-image"
+            />
+          </picture>
         </a>
 
         <div class="page-nav__list user-list">
@@ -84,7 +92,7 @@
                   alt="Декаф Флэт Уайт"
                   width="280px"
                   height="280px"
-                  class="example-products__img"
+                  class="example-products__image"
                 />
                 <span class="badge example-products__badge">Новинка!</span>
                 <h3 class="example-products__title">Декаф Флэт <br />Уайт</h3>
@@ -186,10 +194,12 @@
                 height="56"
                 class="advantages__image"
               />
-              <h3 class="advantages-item__title">Скорость</h3>
-              <p class="advantages__text">
-                Готовый напиток всегда под рукой — просто открой банку
-              </p>
+              <div class="advantages__text-container">
+                <h3 class="advantages-item__title">Скорость</h3>
+                <p class="advantages__text">
+                  Готовый напиток всегда под рукой — просто открой банку
+                </p>
+              </div>
             </li>
             <li class="advantages__item">
               <img
@@ -199,10 +209,12 @@
                 height="56"
                 class="advantages__image"
               />
-              <h3 class="advantages-item__title">Удобство</h3>
-              <p class="advantages__text">
-                Легко помещается и в карман, и в маленькую сумочку
-              </p>
+              <div class="advantages__text-container">
+                <h3 class="advantages-item__title">Удобство</h3>
+                <p class="advantages__text">
+                  Легко помещается и в карман, и в маленькую сумочку
+                </p>
+              </div>
             </li>
             <li class="advantages__item">
               <img
@@ -212,10 +224,12 @@
                 height="56"
                 class="advantages__image"
               />
-              <h3 class="advantages-item__title">Бодрость</h3>
-              <p class="advantages__text">
-                Сбалансированная доза кофеина даст мощный заряд энергии
-              </p>
+              <div class="advantages__text-container">
+                <h3 class="advantages-item__title">Бодрость</h3>
+                <p class="advantages__text">
+                  Сбалансированная доза кофеина даст мощный заряд энергии
+                </p>
+              </div>
             </li>
             <li class="advantages__item">
               <img
@@ -225,10 +239,12 @@
                 alt=""
                 class="advantages__image"
               />
-              <h3 class="advantages-item__title">Экологичность</h3>
-              <p class="advantages__text">
-                Вся упаковка сделана из перерабатываемых материалов
-              </p>
+              <div class="advantages__text-container">
+                <h3 class="advantages-item__title">Экологичность</h3>
+                <p class="advantages__text">
+                  Вся упаковка сделана из перерабатываемых материалов
+                </p>
+              </div>
             </li>
           </ul>
         </div>
@@ -239,146 +255,160 @@
           <span class="badge catalog__badge">Каталог</span>
           <h2 class="catalog__title">Каталог кофейных напитков</h2>
           <form class="catalog__form">
-            <fieldset class="catalog__fieldset">
-              <legend class="catalog__legend">Цена</legend>
-              <div class="range-slider slider">
-                <div class="slider-bar" style="margin-right: 50px">
-                  <button class="slider-thumb" type="button">
-                    <span class="visually-hidden">Ручка минимальной цены</span>
-                  </button>
-                  <button class="slider-thumb" type="button">
-                    <span class="visually-hidden">Ручка максимальной цены</span>
-                  </button>
+            <div class="filters__container">
+              <fieldset class="catalog__fieldset">
+                <legend class="catalog__legend">Цена</legend>
+                <div class="range-slider slider">
+                  <div class="slider-bar" style="margin-right: 50px">
+                    <button class="slider-thumb" type="button">
+                      <span class="visually-hidden"
+                        >Ручка минимальной цены</span
+                      >
+                    </button>
+                    <button class="slider-thumb" type="button">
+                      <span class="visually-hidden"
+                        >Ручка максимальной цены</span
+                      >
+                    </button>
+                  </div>
                 </div>
-              </div>
-              <div class="price-values">
+                <div class="price-values">
+                  <input
+                    class="range-input"
+                    type="number"
+                    name="price-from"
+                    min="0"
+                    max="500"
+                    step="1"
+                    placeholder="0"
+                  />
+                  <input
+                    class="range-input"
+                    type="number"
+                    name="price-from"
+                    min="0"
+                    max="500"
+                    step="1"
+                    placeholder="123"
+                  />
+                </div>
+              </fieldset>
+              <fieldset class="catalog__fieldset">
+                <legend class="catalog__legend">Наличие молока</legend>
                 <input
-                  class="range-input"
-                  type="number"
-                  name="price-from"
-                  min="0"
-                  max="500"
-                  step="1"
-                  placeholder="0"
+                  class="catalog__radio"
+                  type="radio"
+                  id="milk-any"
+                  name="milk"
+                  checked
                 />
+                <label for="milk-any" class="catalog__label-radio"
+                  >Неважно</label
+                ><br />
                 <input
-                  class="range-input"
-                  type="number"
-                  name="price-from"
-                  min="0"
-                  max="500"
-                  step="1"
-                  placeholder="123"
+                  class="catalog__radio"
+                  type="radio"
+                  id="milk-animal"
+                  name="milk"
                 />
-              </div>
-            </fieldset>
-            <fieldset class="catalog__fieldset">
-              <legend class="catalog__legend">Наличие молока</legend>
-              <input
-                class="catalog__radio"
-                type="radio"
-                id="milk-any"
-                name="milk"
-                checked
-              />
-              <label for="milk-any" class="catalog__label-radio">Неважно</label
-              ><br />
-              <input
-                class="catalog__radio"
-                type="radio"
-                id="milk-animal"
-                name="milk"
-              />
-              <label for="milk-animal" class="catalog__label-radio"
-                >Только животное</label
-              ><br />
-              <input
-                class="catalog__radio"
-                type="radio"
-                id="milk-vegan"
-                name="milk"
-              />
-              <label for="milk-vegan" class="catalog__label-radio"
-                >Только растительное</label
-              ><br />
-              <input
-                class="catalog__radio"
-                type="radio"
-                id="milk-none"
-                name="milk"
-                disabled
-              />
-              <label for="milk-none" class="catalog__label-radio"
-                >Без молока</label
-              >
-            </fieldset>
-            <fieldset class="catalog__fieldset">
-              <legend class="catalog__legend">Страна произрастания</legend>
-
-              <div class="catalog__checkbox-container">
-                <label class="catalog__checkbox switch">
-                  <input
-                    type="checkbox"
-                    id="country-brazil"
-                    name="country"
-                    checked
-                  />
-                  <span class="catalog__checkbox-slider slider"></span>
-                </label>
-                <label for="country-brazil" class="catalog__label-checkbox"
-                  >Бразилия</label
+                <label for="milk-animal" class="catalog__label-radio"
+                  >Только животное</label
+                ><br />
+                <input
+                  class="catalog__radio"
+                  type="radio"
+                  id="milk-vegan"
+                  name="milk"
+                />
+                <label for="milk-vegan" class="catalog__label-radio"
+                  >Только растительное</label
+                ><br />
+                <input
+                  class="catalog__radio"
+                  type="radio"
+                  id="milk-none"
+                  name="milk"
+                  disabled
+                />
+                <label for="milk-none" class="catalog__label-radio"
+                  >Без молока</label
                 >
-              </div>
+              </fieldset>
+              <fieldset class="catalog__fieldset">
+                <legend class="catalog__legend">Страна произрастания</legend>
+                <div class="catalog__checkbox-container">
+                  <label class="catalog__checkbox switch">
+                    <input
+                      type="checkbox"
+                      id="country-brazil"
+                      name="country"
+                      checked
+                    />
+                    <span class="catalog__checkbox-slider slider"></span>
+                  </label>
+                  <label for="country-brazil" class="catalog__label-checkbox"
+                    >Бразилия</label
+                  >
+                </div>
 
-              <div class="catalog__checkbox-container">
-                <label class="catalog__checkbox switch">
-                  <input type="checkbox" id="country-ethiopia" name="country" />
-                  <span class="catalog__checkbox-slider slider"></span>
-                </label>
-                <label for="country-ethiopia" class="catalog__label-checkbox"
-                  >Эфиопия</label
-                >
-              </div>
+                <div class="catalog__checkbox-container">
+                  <label class="catalog__checkbox switch">
+                    <input
+                      type="checkbox"
+                      id="country-ethiopia"
+                      name="country"
+                    />
+                    <span class="catalog__checkbox-slider slider"></span>
+                  </label>
+                  <label for="country-ethiopia" class="catalog__label-checkbox"
+                    >Эфиопия</label
+                  >
+                </div>
 
-              <div class="catalog__checkbox-container">
-                <label class="catalog__checkbox switch">
-                  <input type="checkbox" id="country-columbia" name="country" />
-                  <span class="catalog__checkbox-slider slider"></span>
-                </label>
-                <label for="country-columbia" class="catalog__label-checkbox"
-                  >Колумбия</label
-                >
-              </div>
+                <div class="catalog__checkbox-container">
+                  <label class="catalog__checkbox switch">
+                    <input
+                      type="checkbox"
+                      id="country-columbia"
+                      name="country"
+                    />
+                    <span class="catalog__checkbox-slider slider"></span>
+                  </label>
+                  <label for="country-columbia" class="catalog__label-checkbox"
+                    >Колумбия</label
+                  >
+                </div>
 
-              <div class="catalog__checkbox-container">
-                <label class="catalog__checkbox switch">
-                  <input
-                    type="checkbox"
-                    id="country-costarica"
-                    name="country"
-                  />
-                  <span class="catalog__checkbox-slider slider"></span>
-                </label>
-                <label for="country-costarica" class="catalog__label-checkbox"
-                  >Коста-Рика</label
-                >
-              </div>
+                <div class="catalog__checkbox-container">
+                  <label class="catalog__checkbox switch">
+                    <input
+                      type="checkbox"
+                      id="country-costarica"
+                      name="country"
+                    />
+                    <span class="catalog__checkbox-slider slider"></span>
+                  </label>
+                  <label for="country-costarica" class="catalog__label-checkbox"
+                    >Коста-Рика</label
+                  >
+                </div>
 
-              <div class="catalog__checkbox-container">
-                <label class="catalog__checkbox switch">
-                  <input
-                    type="checkbox"
-                    id="country-peru"
-                    name="country"
-                    disabled
-                  />
-                  <span class="catalog__checkbox-slider slider"></span>
-                </label>
-                <label for="country-peru" class="catalog__label-checkbox"
-                  >Перу</label
-                >
-              </div>
-            </fieldset>
+                <div class="catalog__checkbox-container">
+                  <label class="catalog__checkbox switch">
+                    <input
+                      type="checkbox"
+                      id="country-peru"
+                      name="country"
+                      disabled
+                    />
+                    <span class="catalog__checkbox-slider slider"></span>
+                  </label>
+                  <label for="country-peru" class="catalog__label-checkbox"
+                    >Перу</label
+                  >
+                </div>
+              </fieldset>
+            </div>
 
             <div class="catalog__filter-buttons">
               <button type="submit" class="button catalog__button">
@@ -585,14 +615,22 @@
 
     <footer class="page__foter page-footer">
       <div class="wrapper page-footer__wrapper">
-        <section class="socials">
-          <img
-            src="images/page-footer__logo.svg"
-            alt="Drink2Go"
-            class="page-footer__logo"
-            width="82"
-            height="36"
-          />
+        <section class="footer__section socials">
+          <picture>
+            <source
+              media="(min-width: 768px)"
+              srcset="./images/logo-footer--medium.svg"
+              width="170"
+              height="36"
+            />
+            <img
+              src="images/page-footer__logo.svg"
+              alt="Drink2Go"
+              class="page-footer__logo"
+              width="82"
+              height="36"
+            />
+          </picture>
 
           <ul class="socials__list">
             <li class="socials__item">
@@ -604,7 +642,6 @@
                   alt="Вконтакте"
                   class="socials__icon"
               /></a>
-
             </li>
             <li class="socials__item">
               <a href="#" class="socials__link"
@@ -615,71 +652,77 @@
                   alt="Pinterest"
                   class="socials__icon"
               /></a>
-              </a>
             </li>
-            <li class="socials__item"><a href="#" class="socials__link"
-              ><img
-                src="images/ok.svg"
-                width="20"
-                height="20"
-                alt="OK"
-                class="socials__icon"
-            /></li>
+            <li class="socials__item">
+              <a href="#" class="socials__link"
+                ><img
+                  src="images/ok.svg"
+                  width="20"
+                  height="20"
+                  alt="OK"
+                  class="socials__icon"
+              /></a>
+            </li>
           </ul>
         </section>
 
-        <section class="site-menu--footer">
-          <h4 class="footer__title">Интернет-магазин</h4>
-          <nav class="page-foter__nav">
-            <ul class="page-foter__list">
-              <li class="page-foter__item">
-                <a href="#" class="page-foter__link">Каталог</a>
-              </li>
-              <li class="page-foter__item">
-                <a href="#" class="page-foter__link">Доставка</a>
-              </li>
-              <li class="page-foter__item">
-                <a href="#" class="page-foter__link">Способ оплаты</a>
-              </li>
-              <li class="page-foter__item">
-                <a href="#" class="page-foter__link">О нас</a>
-              </li>
-            </ul>
-          </nav>
-        </section>
+        <div class="footer__sections-container">
+          <section class="footer__section site-menu--footer">
+            <h4 class="footer__title">Интернет-магазин</h4>
+            <nav class="page-foter__nav">
+              <ul class="page-foter__list">
+                <li class="page-foter__item">
+                  <a href="#" class="page-foter__link">Каталог</a>
+                </li>
+                <li class="page-foter__item">
+                  <a href="#" class="page-foter__link">Доставка</a>
+                </li>
+                <li class="page-foter__item">
+                  <a href="#" class="page-foter__link">Способ оплаты</a>
+                </li>
+                <li class="page-foter__item">
+                  <a href="#" class="page-foter__link">О нас</a>
+                </li>
+              </ul>
+            </nav>
+          </section>
 
-        <section class="media">
-          <h4 class="footer__title">Медиа</h4>
-          <nav class="page-foter__nav">
-            <ul class="page-foter__list">
-              <li class="page-foter__item">
-                <a href="#" class="page-foter__link">Блог</a>
-              </li>
-              <li class="page-foter__item">
-                <a href="#" class="page-foter__link">Информация для СМИ</a>
-              </li>
-              <li class="page-foter__item">
-                <a href="#" class="page-foter__link">Правовая информация</a>
-              </li>
-            </ul>
-          </nav>
-        </section>
+          <section class="footer__section media">
+            <h4 class="footer__title">Медиа</h4>
+            <nav class="page-foter__nav">
+              <ul class="page-foter__list">
+                <li class="page-foter__item">
+                  <a href="#" class="page-foter__link">Блог</a>
+                </li>
+                <li class="page-foter__item">
+                  <a href="#" class="page-foter__link">Информация для СМИ</a>
+                </li>
+                <li class="page-foter__item">
+                  <a href="#" class="page-foter__link">Правовая информация</a>
+                </li>
+              </ul>
+            </nav>
+          </section>
 
-        <section class="contacts">
-          <h4 class="footer__title">Контакты</h4>
-          <p class="contacts__address">
-            Санкт-Петербург, набережная реки Карповки, дом 5
-          </p>
-          <a href="tel:+79999999999" class="contacts__telephone"
-            >+7 (999) 999-99-99</a
-          >
-        </section>
+          <section class="footer__section contacts">
+            <h4 class="footer__title">Контакты</h4>
+            <a class="contacts__address" href="#">
+              <span class="contacts-address__icon"></span>
+              Санкт-Петербург, набережная реки Карповки, дом 5
+            </a>
+            <a href="tel:+79999999999" class="contacts__telephone"
+              ><span class="contacts-telephone__icon"></span> +7 (999)
+              999-99-99</a
+            >
+          </section>
+        </div>
 
         <a
           class="page-footer__developer developer"
           href="https://htmlacademy.ru/intensive/adaptive"
         >
           Разработано в HTML Academy
+          <span class="developer__image"></span>
         </a>
       </div>
     </footer>

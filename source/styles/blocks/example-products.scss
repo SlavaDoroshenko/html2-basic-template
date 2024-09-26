@@ -1,16 +1,48 @@
-.example-products{
-
+.example-products {
   &--latte {
-  background-color: #f3ebe1;
+    background-color: #f3ebe1;
+    @media (min-width) {
+      background: linear-gradient(
+        to bottom,
+        #f3ebe1 0,
+        #f3ebe1 640px,
+        #fff 640px,
+        #fff 100%
+      );
+    }
+  }
+
+  &--lavanda {
+    background-color: #eae6fc;
+    @media (min-width) {
+      background: linear-gradient(
+        to bottom,
+        #eae6fc 0,
+        #eae6fc 640px,
+        #fff 640px,
+        #fff 100%
+      );
+    }
+  }
+
+  &--espresso {
+    background-color: #e5e6e8;
+    @media (min-width) {
+      background: linear-gradient(
+        to bottom,
+        #e5e6e8 0,
+        #e5e6e8 640px,
+        #fff 640px,
+        #fff 100%
+      );
+    }
+  }
 }
 
-&--lavanda {
-  background-color: #eae6fc;
-}
-
-&--espresso {
-  background-color: #e5e6e8;
-}
+.example-products__image {
+  @media (min-width: $tablet) {
+    order: 3;
+  }
 }
 
 .example-products__card {
@@ -23,6 +55,9 @@
   justify-content: center; /* Центрируем по вертикали */
   align-items: center; /* Центрируем по горизонтали */
 
+  @media (min-width: $tablet) {
+    width: 768px;
+  }
 }
 
 .example-products__badge {
@@ -39,15 +74,15 @@
   margin-top: 5px;
   padding: 0;
   font-size: 36px;
-line-height: 48px;
+  line-height: 48px;
 }
 
 .example-products__description {
   font-size: 14px;
-font-weight: 400;
-margin: 0;
-margin-top: 5px;
-height: 100px;
+  font-weight: 400;
+  margin: 0;
+  margin-top: 5px;
+  height: 100px;
 }
 
 .example-products__order {

@@ -16,6 +16,21 @@
   margin: 0;
 }
 
+.catalog__form {
+  @media (min-width: $tablet) {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.filters__container {
+  @media (min-width: $tablet) {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 20px;
+  }
+}
+
 .catalog__fieldset {
   border: none;
   padding: 10px 0;
@@ -294,6 +309,11 @@ input[type='radio'] {
       background-color: #ffffff;
     }
   }
+
+  @media (min-width: $tablet) {
+    flex-direction: row;
+    justify-content: center;
+  }
 }
 
 .catalog__sort-container {
@@ -302,6 +322,10 @@ input[type='radio'] {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 20px;
+
+  @media (min-width: $tablet) {
+    margin-left: auto;
+  }
 }
 
 .catalog__sort {
@@ -376,6 +400,14 @@ input[type='radio'] {
   font-size: 20px;
   font-weight: 600;
   line-height: 32px;
+}
+
+.catalog__list {
+  @media (min-width: $tablet) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 20px;
+  }
 }
 
 /* Основные стили для списка пагинации */

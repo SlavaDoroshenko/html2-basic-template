@@ -11,11 +11,31 @@
   margin-bottom: 36px;
 }
 
+.advantages__list {
+  @media (min-width: $tablet) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+  }
+}
+
 .advantages__item {
   margin-bottom: 32px;
 
   &:last-child {
     margin-bottom: 0;
+  }
+
+  @media (min-width: $tablet) {
+    display: flex;
+    flex-direction: row;
+    align-items: start;
+  }
+}
+
+.advantages__text-container {
+  @media (min-width: $tablet) {
+    text-align: start;
   }
 }
 

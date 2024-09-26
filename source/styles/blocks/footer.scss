@@ -3,3 +3,46 @@
   margin: 0;
   padding: 0;
 }
+
+.page-footer__developer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  color: #bdbdbd;
+}
+
+.footer__section {
+  position: relative;
+  padding: 20px;
+  @media (max-width: calc($tablet - 1px)) {
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100vw;
+      border-bottom: 1px #f0ebff solid;
+    }
+  }
+}
+
+.developer__image {
+  &::before {
+    content: '';
+    width: 20px;
+    height: 16px;
+    display: block;
+    background: #bdbdbd;
+    mask-image: url('../../icons/logo-developer.svg');
+  }
+}
+
+.footer__sections-container {
+  @media (min-width: $tablet) {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

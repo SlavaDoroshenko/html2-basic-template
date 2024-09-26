@@ -3,4 +3,8 @@
   max-width: 320px; // Фиксированная ширина для маленьких экранов
   min-width: 320px;
   margin: 0 auto; // Центрирование содержимого
+
+  @media (min-width: $tablet) {
+    max-width: $tablet;
+  }
 }

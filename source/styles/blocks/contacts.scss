@@ -1,13 +1,38 @@
 .contacts {
   position: relative;
+  // padding: 20px;
 
+  &__address {
+    display: flex;
+    flex-direction: row;
+  }
+
+  &__telephone {
+    display: flex;
+    flex-direction: row;
+  }
+}
+
+.contacts-address__icon {
   &::after {
     content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100vw;
-    border-bottom: 1px #f0ebff solid;
+    left: 0;
+    width: 20px;
+    height: 16px;
+    display: block;
+    background: $violet-color;
+    mask-image: url('../../icons/address.svg');
+  }
+}
+
+.contacts-telephone__icon {
+  &::after {
+    content: '';
+    left: 0;
+    width: 20px;
+    height: 16px;
+    display: block;
+    background: $violet-color;
+    mask-image: url('../../icons/phone.svg');
   }
 }
