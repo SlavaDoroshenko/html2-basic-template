@@ -2,13 +2,20 @@
   width: 100vw;
   min-width: 320px;
   & [class^='swiper-button-']::after {
-    font-size: 20px;
+    font-size: 19px;
     color: $violet-color;
   }
 
   & [class^='swiper-button-'] {
-    width: 0px;
     bottom: 50%;
+  }
+
+  & [class^='swiper-button-prev'] {
+    left: -3;
+  }
+
+  & [class^='swiper-button-next'] {
+    right: -3;
   }
 }
 
@@ -19,9 +26,36 @@
 }
 
 .swiper-button-prev {
-  margin-left: 20px;
+  @media (min-width: $tablet) {
+    margin-left: 20px;
+  }
 }
 
 .swiper-button-next {
-  margin-right: 20px;
+  @media (min-width: $tablet) {
+    margin-right: 20px;
+  }
+}
+
+.swiper-pagination {
+  display: none;
+  bottom: 10px;
+  text-align: center;
+
+  .swiper-pagination-bullet {
+    width: 30px; /* Увеличьте ширину для создания полосочек */
+    height: 4px; /* Уменьшите высоту */
+    background-color: #ffffff;
+    opacity: 1;
+    transition: background-color 0.5s ease;
+    border-radius: 0; /* Уберите закругленные углы */
+
+    &-active {
+      background-color: $violet-color;
+    }
+  }
+
+  @media (min-width: $desktop) {
+    display: block;
+  }
 }

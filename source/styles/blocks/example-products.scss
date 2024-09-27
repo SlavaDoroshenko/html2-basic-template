@@ -1,7 +1,7 @@
 .example-products {
   &--latte {
     background-color: #f3ebe1;
-    @media (min-width) {
+    @media (min-width: $tablet) and (max-width: calc($desktop - 1px)) {
       background: linear-gradient(
         to bottom,
         #f3ebe1 0,
@@ -14,7 +14,7 @@
 
   &--lavanda {
     background-color: #eae6fc;
-    @media (min-width) {
+    @media (min-width: $tablet) and (max-width: calc($desktop - 1px)) {
       background: linear-gradient(
         to bottom,
         #eae6fc 0,
@@ -27,7 +27,7 @@
 
   &--espresso {
     background-color: #e5e6e8;
-    @media (min-width) {
+    @media (min-width: $tablet) and (max-width: calc($desktop - 1px)) {
       background: linear-gradient(
         to bottom,
         #e5e6e8 0,
@@ -42,6 +42,8 @@
 .example-products__image {
   @media (min-width: $tablet) {
     order: 3;
+    width: 476;
+    height: 476;
   }
 }
 
@@ -58,58 +60,76 @@
   @media (min-width: $tablet) {
     width: 768px;
   }
+
+  @media (min-width: $desktop) {
+    flex-direction: row-reverse;
+  }
 }
 
+.badge,
 .example-products__badge {
+  display: block;
   font-weight: 700;
-  margin: 0;
-  margin-top: 2px;
+  margin-top: 10px;
   font-size: 16px;
+  line-height: 16px;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
 }
 
 .example-products__title {
   display: block;
   margin: 0;
-  margin-top: 5px;
+  margin-top: 4px;
   padding: 0;
   font-size: 36px;
+  font-weight: 700;
   line-height: 48px;
+  letter-spacing: 0.02em;
+  margin-bottom: 10px;
 }
 
 .example-products__description {
   font-size: 14px;
   font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0%;
   margin: 0;
   margin-top: 5px;
   height: 100px;
 }
 
 .example-products__order {
-  width: 100%;
+  width: 280;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   padding: 0 25px;
   margin-top: 20px;
-  margin-bottom: 60px;
+  margin-bottom: 40px;
+
+  @media (min-width: $tablet) {
+    justify-content: center;
+  }
 }
 
 .example-products__prices {
   display: flex;
   flex-direction: row;
-  align-items: center;
+  // align-items: center;
 }
 
 .example-products__old-price {
+  display: block;
   font-size: 16px;
   color: $violet-color;
   text-decoration: line-through;
+  margin-right: 6px;
 }
 
 .example-products__new-price {
+  display: block;
   font-size: 20px;
   font-weight: 600;
-  padding: 0 5px;
 }

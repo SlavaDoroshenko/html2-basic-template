@@ -11,15 +11,29 @@
     justify-content: space-between;
     padding: 0 20px;
   }
+
+  @media (min-width: $desktop) {
+    width: $desktop;
+  }
+}
+
+.logo-header__text {
+  display: none;
+  font-size: 12px;
+  width: 126px;
+
+  @media (min-width: $desktop) {
+    display: block;
+  }
 }
 
 .page-header__logo {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 60px;
+  justify-content: start;
   height: 60px;
   box-sizing: border-box;
+  padding-top: 12px;
+  padding-left: 20px;
 
   img {
     max-width: 100%;
@@ -27,8 +41,8 @@
   }
 
   @media (min-width: $tablet) {
-    width: 80px;
     height: 80px;
+    padding: 0;
   }
 }
 
@@ -58,31 +72,61 @@
   }
 }
 
-.user-list__login {
-  display: block;
-  width: 60px;
-  height: 60px;
+// .user-list__login {
+//   display: flex;
+//   align-items: center;
+//   width: auto; /* Установите ширину в auto, чтобы подстроиться под содержимое */
+//   height: auto; /* Установите высоту в auto, чтобы подстроиться под содержимое */
+//   padding: 10px; /* Добавьте отступы для лучшего внешнего вида */
+//   background: none; /* Уберите фон */
+//   border: none;
+//   // width: 100%;
+//   justify-content: center;
+//   height: 100%;
+//   flex-direction: row;
 
-  background-size: 16px 16px;
-  background-position: 50% 50%;
-  background-repeat: no-repeat;
-  background-image: url('../../images/login.svg');
-  border: none;
+//   @media (min-width: $tablet) {
+//     height: 80px;
+//   }
+
+//   @media (min-width: $desktop) {
+//     background-position: 0% 50%;
+//   }
+// }
+
+.user-list__icon {
+  width: 16px; /* Установите ширину значка */
+  height: 16px; /* Установите высоту значка */
 }
 
-.user-list__cart {
-  display: block;
-  width: 60px;
-  height: 60px;
+// .user-list__cart {
+//   display: flex;
+//   align-items: center;
+//   width: auto; /* Установите ширину в auto, чтобы подстроиться под содержимое */
+//   height: auto; /* Установите высоту в auto, чтобы подстроиться под содержимое */
+//   padding: 10px; /* Добавьте отступы для лучшего внешнего вида */
+//   background: none; /* Уберите фон */
+//   border: none;
+//   justify-content: center;
+//   // width: 100%;
+//   height: 100%;
+//   flex-direction: row;
 
-  background-position: 50% 50%;
-  background-size: 16px 16px;
-  background-repeat: no-repeat;
-  background-image: url('../../images/cart.svg');
-  border: none;
+//   @media (min-width: $tablet) {
+//     height: 80px;
+//   }
+// }
+
+.user-item__text {
+  display: none;
+
+  @media (min-width: $desktop) {
+    display: block;
+  }
 }
 
 .page-header__toggle {
+  display: inline-block;
   width: 60px;
   height: 60px;
 

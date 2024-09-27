@@ -1,3 +1,16 @@
+.page-footer__wrapper {
+  @media (min-width: $tablet) {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr 1fr 80px;
+  }
+
+  @media (min-width: $desktop) {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 1fr 80px;
+  }
+}
+
 .footer__title {
   color: $violet-color;
   margin: 0;
@@ -11,6 +24,16 @@
   align-items: center;
   padding: 20px;
   color: #bdbdbd;
+
+  @media (min-width: $tablet) {
+    grid-row: 3/4;
+    grid-column: 1/4;
+  }
+
+  @media (min-width: $desktop) {
+    grid-row: 2/3;
+    grid-column: 1/5;
+  }
 }
 
 .footer__section {
@@ -37,12 +60,5 @@
     display: block;
     background: #bdbdbd;
     mask-image: url('../../icons/logo-developer.svg');
-  }
-}
-
-.footer__sections-container {
-  @media (min-width: $tablet) {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
   }
 }

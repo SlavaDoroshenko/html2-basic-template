@@ -6,7 +6,7 @@ toggleButton.addEventListener('click', () => {
   toggleButton.classList.toggle('page-header__toggle--open');
 });
 
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', () => {
   const swiper = new Swiper('.swiper', {
     // Optional parameters
     direction: 'horizontal',
@@ -15,6 +15,10 @@ document.addEventListener('DOMContentLoaded', function () {
     navigation: {
       nextEl: '.swiper-button-next',
       prevEl: '.swiper-button-prev',
+    },
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
     },
   });
 });

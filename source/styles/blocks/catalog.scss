@@ -21,13 +21,29 @@
     display: flex;
     flex-direction: column;
   }
+
+  @media (min-width: $desktop) {
+    margin-right: 20px;
+  }
 }
 
-.filters__container {
+.catalog__container {
+  @media (min-width: $desktop) {
+    display: flex;
+    flex-direction: row;
+  }
+}
+
+.catalog .filters__container {
   @media (min-width: $tablet) {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     column-gap: 20px;
+  }
+
+  @media (min-width: $desktop) {
+    display: flex;
+    flex-direction: column;
   }
 }
 
@@ -408,6 +424,10 @@ input[type='radio'] {
     grid-template-columns: repeat(2, 1fr);
     column-gap: 20px;
   }
+
+  @media (min-width: $desktop) {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 /* Основные стили для списка пагинации */
@@ -418,11 +438,16 @@ input[type='radio'] {
   list-style-type: none;
   padding: 0;
   margin: 0;
+
+  @media (min-width: $tablet) {
+    justify-content: end;
+    gap: 20px;
+  }
 }
 
 /* Стили для каждого элемента пагинации */
 .pagination__item {
-  width: 34px; /* Фиксированная ширина */
+  width: auto; /* Фиксированная ширина */
   height: 34px; /* Фиксированная высота */
   display: flex; /* Используем Flexbox для центрирования содержимого */
   align-items: center; /* Центрируем по вертикали */
@@ -466,6 +491,13 @@ input[type='radio'] {
   border-radius: 4px;
 }
 
+.pagination__text {
+  display: none;
+  @media (min-width: $tablet) {
+    display: block;
+  }
+}
+
 /* Стили для активного элемента (например, текущей страницы) */
 .pagination__item--active .pagination__link {
   background-color: #f8f8f8;
@@ -482,6 +514,9 @@ input[type='radio'] {
   border: solid #6c63ff;
   border-width: 0 2px 2px 0;
   padding: 5px;
+  @media (min-width: $tablet) {
+    display: none;
+  }
 }
 
 .pagination__item--prev a::before {
