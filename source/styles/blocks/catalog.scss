@@ -3,17 +3,41 @@
 }
 
 .catalog__wrapper {
-  padding: 20px;
+  padding: 20px 17px;
+
+  @media (min-width: $tablet) {
+    padding: 20px;
+  }
 }
 
 .catalog__badge {
+  margin: 0;
+  margin-top: 30px;
   display: block;
   text-align: center;
+  margin-bottom: 4px;
+
+  @media (min-width: $tablet) {
+    margin-top: 100px;
+  }
+
+  @media (min-width: $desktop) {
+    margin-top: 180px;
+  }
 }
 
 .catalog__title {
   text-align: center;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 36px;
   margin: 0;
+
+  @media (min-width: $tablet) {
+    font-size: 42px;
+    font-weight: 700;
+    line-height: 64px;
+  }
 }
 
 .catalog__form {
@@ -23,7 +47,7 @@
   }
 
   @media (min-width: $desktop) {
-    margin-right: 20px;
+    padding: 20px;
   }
 }
 
@@ -31,14 +55,16 @@
   @media (min-width: $desktop) {
     display: flex;
     flex-direction: row;
+    gap: 7px;
   }
 }
 
 .catalog .filters__container {
+  margin-top: 20px;
   @media (min-width: $tablet) {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    column-gap: 20px;
+    column-gap: 30px;
   }
 
   @media (min-width: $desktop) {
@@ -51,18 +77,56 @@
   border: none;
   padding: 10px 0;
   margin: 0;
+  padding-left: 5px;
+  margin-bottom: 22px;
+
+  &:nth-child(2) {
+    margin-bottom: 13px;
+  }
+
+  &:last-child {
+    margin-bottom: 20px;
+
+    @media (min-width: $desktop) {
+      margin-bottom: 18px;
+    }
+  }
+
+  @media (min-width: $tablet) {
+    padding: 0;
+  }
+
+  @media (min-width: $desktop) {
+    margin: 0;
+    margin-bottom: 35px;
+
+    &--checkbox {
+      margin: 0;
+      margin-top: 8px;
+    }
+  }
 }
 
 .catalog__legend {
-  font-size: 14px;
-  font-weight: bold;
-  margin-bottom: 10px;
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+  // padding-left: 5px;
+
+  @media (min-width: $tablet) {
+    margin-bottom: 9px;
+  }
 }
 
 .range-slider {
   position: relative;
   width: 100%;
   margin: 20px 0;
+
+  @media (min-width: $desktop) {
+    width: 320px;
+  }
 }
 
 /* Полоска слайдера */
@@ -83,8 +147,8 @@
   background: linear-gradient(
     to right,
     transparent 0%,
-    transparent 80%,
-    #e2e2e2 80%,
+    transparent 90%,
+    #e2e2e2 90%,
     #e2e2e2 100%
   );
   top: 0;
@@ -99,9 +163,11 @@
   height: 4px; /* Серая линия между ползунками */
   background: linear-gradient(
     to right,
-    $violet-color 0%,
-    $violet-color 80%,
-    transparent 80%,
+    #ffffff 0%,
+    #ffffff 8%,
+    $violet-color 8%,
+    $violet-color 90%,
+    transparent 90%,
     transparent 100%
   );
   top: 0;
@@ -120,14 +186,28 @@
   cursor: default;
   pointer-events: none; /* Отключаем возможность перетаскивать ручки */
   z-index: 2;
+  margin-top: 3px;
 }
 
 .slider-thumb:first-of-type {
-  left: -1%; /* Расположена слева, минимальная цена */
+  margin-left: 1px;
+  left: 0; /* Расположена слева, минимальная цена */
+
+  @media (min-width: $tablet) {
+    left: -1;
+  }
 }
 
 .slider-thumb:last-of-type {
-  right: 19%; /* Расположена справа, максимальная цена */
+  right: 7%; /* Расположена справа, максимальная цена */
+
+  @media (min-width: $tablet) {
+    right: 9%;
+  }
+
+  @media (min-width: $desktop) {
+    right: 7%;
+  }
 }
 
 .price-values {
@@ -137,18 +217,23 @@
   padding: 0;
   justify-content: space-between;
   position: relative;
+  margin-top: 38px;
 
   &::before {
     content: '';
     position: absolute;
-    top: 50%;
-    left: 50%;
+    top: 49%;
+    left: 49%;
     right: 50%;
     width: 8px;
     height: 2px; /* Высота полоски */
     background-color: #e2e2e2; /* Цвет полоски */
     z-index: 1; /* Чтобы полоска была под элементами range-input */
     transform: translateY(-50%);
+  }
+
+  @media (min-width: $tablet) {
+    margin-top: 34px;
   }
 }
 
@@ -162,7 +247,7 @@
   font-weight: 500;
   line-height: 20px;
   color: black;
-  width: 98px;
+  width: 118px;
   padding: 8px 10px;
   appearance: none;
 
@@ -183,6 +268,18 @@
 
   /* Убираем стрелки в Firefox */
   -moz-appearance: textfield;
+
+  @media (min-width: $tablet) {
+    width: 88px;
+  }
+
+  @media (min-width: $desktop) {
+    width: 134px;
+  }
+}
+
+.catalog__radio-container {
+  margin-top: 8px;
 }
 
 /* Скрываем стандартные радио-кнопки */
@@ -195,8 +292,11 @@ input[type='radio'] {
 .catalog__label-radio {
   display: inline-flex;
   align-items: center;
-  font-family: Arial, sans-serif;
+  font-family: Montserrat;
   font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0%;
   color: #4a4a4a;
   cursor: pointer;
   margin-bottom: 12px;
@@ -206,8 +306,8 @@ input[type='radio'] {
 .catalog__label-radio::before {
   content: '';
   display: inline-block;
-  width: 20px;
-  height: 20px;
+  width: 24px;
+  height: 24px;
   margin-right: 12px;
   border-radius: 50%;
   border: 2px solid #d3d3d3;
@@ -239,6 +339,7 @@ input[type='radio'] {
 }
 
 .catalog__checkbox-container {
+  margin-top: 9px;
   margin-bottom: 20px;
   display: flex;
   flex-direction: row;
@@ -252,9 +353,10 @@ input[type='radio'] {
 .catalog__checkbox {
   position: relative;
   display: inline-block;
-  width: 50px;
-  height: 28px;
+  width: 42px;
+  height: 24px;
   margin-right: 10px;
+  margin-left: 1px;
 }
 
 /* Скрываем стандартный checkbox */
@@ -282,8 +384,8 @@ input[type='radio'] {
   content: '';
   height: 20px;
   width: 20px;
-  left: 4px;
-  bottom: 4px;
+  left: 2px;
+  bottom: 2px;
   background-color: white;
   border-radius: 50%;
   transition: 0.4s;
@@ -295,12 +397,12 @@ input[type='radio'] {
 }
 
 .catalog__checkbox input:checked + .catalog__checkbox-slider:before {
-  transform: translateX(22px);
+  transform: translateX(18px);
 }
 
 /* Когда переключатель отключен (disabled) */
 .catalog__checkbox input:disabled + .catalog__checkbox-slider {
-  background-color: #ccc;
+  opacity: 0.5;
   cursor: not-allowed;
 }
 
@@ -310,6 +412,7 @@ input[type='radio'] {
 
 /* Текст меток */
 .catalog__label-checkbox {
+  display: block;
   font-size: 16px;
   vertical-align: middle;
 }
@@ -318,8 +421,12 @@ input[type='radio'] {
   display: flex;
   flex-direction: column;
   gap: 20px;
+  margin-left: 6px;
 
   & .catalog__button {
+    @media (min-width: $desktop) {
+      width: 100%;
+    }
     &--secondary {
       color: $violet-color;
       background-color: #ffffff;
@@ -329,18 +436,36 @@ input[type='radio'] {
   @media (min-width: $tablet) {
     flex-direction: row;
     justify-content: center;
+    margin-left: 0;
+    margin-top: 21px;
+  }
+}
+
+.catalog__main {
+  @media (min-width: $tablet) {
+    margin-top: 38px;
+  }
+
+  @media (min-width: $desktop) {
+    margin-top: 0;
   }
 }
 
 .catalog__sort-container {
-  width: 280px;
+  margin-top: 35px;
+  // width: 280px;
+  margin-left: 5px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 20px;
 
   @media (min-width: $tablet) {
     margin-left: auto;
+    justify-content: end;
+  }
+
+  @media (min-width: $desktop) {
+    padding-right: 20px;
   }
 }
 
@@ -362,6 +487,11 @@ input[type='radio'] {
     calc(100% - 10px) calc(1em + 2px);
   background-size: 5px 5px, 5px 5px;
   background-repeat: no-repeat;
+
+  @media (min-width: $tablet) {
+    margin-left: 8px;
+    width: auto;
+  }
 }
 
 .catalog__sort option {
@@ -383,18 +513,30 @@ input[type='radio'] {
 }
 
 .catalog__item {
+  margin-top: 11px;
+  border-radius: 4px;
   display: flex;
   flex-direction: column;
   display: flex;
   align-items: flex-start;
   background-color: #ffffff;
   padding: 20px;
-  margin-bottom: 20px;
+  margin-bottom: 18px;
+
+  @media (min-width: $tablet) {
+    margin-top: 0;
+    padding: 30px;
+  }
 }
 
 .catalog-item__image {
   padding-top: 20px;
   align-self: center;
+  margin-bottom: 24px;
+
+  @media (min-width: $tablet) {
+    padding-top: 20px;
+  }
 }
 
 .catalog-item__title {
@@ -402,14 +544,47 @@ input[type='radio'] {
   font-weight: 700;
   line-height: 32px;
   margin: 0;
+  margin-left: 3px;
+
+  @media (min-width: $tablet) {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 36px;
+    margin-left: 0;
+    margin-top: 8px;
+  }
+}
+
+.catalog-item__discription {
+  margin: 0;
+  margin-top: 5px;
+  padding-left: 4px;
+  padding-right: 4px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+
+  @media (min-width: $tablet) {
+    padding: 0;
+    margin-top: 10px;
+    & span {
+      display: inline-block;
+    }
+  }
 }
 
 .catalog__price-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 10px;
+  margin-top: 13px;
+  padding: 0 3px;
   width: 100%;
+
+  @media (min-width: $tablet) {
+    padding: 0;
+    margin-top: 17px;
+  }
 }
 
 .catalog-item__cost {
@@ -418,37 +593,57 @@ input[type='radio'] {
   line-height: 32px;
 }
 
+button.catalog-item__button {
+  width: 141px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+}
+
 .catalog__list {
   @media (min-width: $tablet) {
+    margin-top: 20px;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    column-gap: 20px;
+    column-gap: 30px;
+    row-gap: 10px;
   }
 
   @media (min-width: $desktop) {
     grid-template-columns: repeat(3, 1fr);
+    padding-right: 20px;
   }
 }
 
 /* Основные стили для списка пагинации */
 .pagination__list {
   display: flex;
-  justify-content: space-between;
+  gap: 20px;
   align-items: center;
   list-style-type: none;
   padding: 0;
   margin: 0;
+  margin-top: 39px;
+  margin-bottom: 23px;
+  padding-left: 3px;
 
   @media (min-width: $tablet) {
     justify-content: end;
     gap: 20px;
+    margin-top: 50px;
+    margin-bottom: 69px;
+  }
+  @media (min-width: $desktop) {
+    margin-top: 40px;
+    padding-right: 20px;
+    padding-bottom: 30px;
   }
 }
 
 /* Стили для каждого элемента пагинации */
 .pagination__item {
-  width: auto; /* Фиксированная ширина */
-  height: 34px; /* Фиксированная высота */
+  width: 40px; /* Фиксированная ширина */
+  height: 40px; /* Фиксированная высота */
   display: flex; /* Используем Flexbox для центрирования содержимого */
   align-items: center; /* Центрируем по вертикали */
   justify-content: center; /* Центрируем по горизонтали */
@@ -506,6 +701,20 @@ input[type='radio'] {
   pointer-events: none; /* Убираем возможность клика на активный элемент */
 }
 
+.pagination__item--prev,
+.pagination__item--next {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative; // Если нужно, чтобы псевдоэлементы были относительно родителя
+
+  @media (min-width: $tablet) {
+    width: auto;
+    height: 40;
+    padding: 5px;
+  }
+}
+
 /* Стили для стрелок "Prev" и "Next" */
 .pagination__item--prev a::before,
 .pagination__item--next a::after {
@@ -513,7 +722,8 @@ input[type='radio'] {
   display: inline-block;
   border: solid #6c63ff;
   border-width: 0 2px 2px 0;
-  padding: 5px;
+  padding: 2px;
+
   @media (min-width: $tablet) {
     display: none;
   }

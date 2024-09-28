@@ -4,24 +4,28 @@
 
   justify-content: space-between;
   align-items: center;
-  padding: 20 20px;
+  padding: 22px 20px;
   position: relative;
 
   @media (min-width: $tablet) {
     grid-row: 1/2;
     grid-column: 1/4;
+    padding-top: 30px;
   }
 
   @media (min-width: $desktop) {
+    padding-top: 38px;
     flex-direction: column;
     grid-row: 1/2;
     grid-column: 1/2;
+    align-items: start;
   }
 }
 
 .socials__list {
   display: flex;
   flex-direction: row;
+  padding-right: 10px;
 }
 
 .socials__item {
@@ -30,4 +34,18 @@
   &:last-child {
     margin-right: 0;
   }
+
+  @media (min-width: $desktop) {
+    margin: 0 20px;
+
+    &:first-child {
+      margin-left: 0;
+      margin-left: 10px;
+      margin-bottom: 15px;
+    }
+  }
+}
+
+.socials__icon {
+  vertical-align: middle;
 }

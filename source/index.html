@@ -59,16 +59,12 @@
 
         <div class="page-nav__list user-list">
           <a href="#" class="user-list__item user-list__login">
-            <img
-              src="../../images/login.svg"
-              alt="Войти"
-              class="user-list__icon"
-            />
+            <img src="images/login.svg" alt="Войти" class="user-list__icon" />
             <span class="user-item__text">Войти</span>
           </a>
           <a href="#" class="user-list__item user-list__cart"
             ><img
-              src="../../images/cart.svg"
+              src="images/cart.svg"
               alt="Корзина"
               class="user-list__icon"
             /><span class="user-item__text">Корзина</span>
@@ -108,17 +104,18 @@
                 <img
                   src="./images/flat_white_img@2x.png"
                   alt="Декаф Флэт Уайт"
-                  width="280px"
-                  height="280px"
+                  width="280"
+                  height="280"
                   class="example-products__image"
                 />
                 <div class="example-products__text-container">
                   <span class="badge example-products__badge">Новинка!</span>
                   <h3 class="example-products__title">Декаф Флэт Уайт</h3>
                   <p class="example-products__description">
-                    Свежесваренный кофе без кофеина из Эфиопии с натуральным
-                    фермерским молоком — то, что нужно для расслабления после
-                    тяжёлого рабочего дня
+                    Свежесваренный кофе без кофеина из Эфиопии
+                    <span>с натуральным</span>
+                    фермерским молоком — то, что нужно
+                    <span>для расслабления</span> после тяжёлого рабочего дня
                   </p>
                   <div class="example-products__order">
                     <div class="example-products__prices">
@@ -140,8 +137,8 @@
                 <img
                   src="./images/lavender_img@2x.png"
                   alt="Лавандовый Латте"
-                  width="280px"
-                  height="280px"
+                  width="280"
+                  height="280"
                   class="example-products__image"
                 />
                 <div class="example-products__text-container">
@@ -172,8 +169,8 @@
                 <img
                   src="./images/espresso_img@2x.png"
                   alt="Тройной Эспрессо"
-                  width="280px"
-                  height="280px"
+                  width="280"
+                  height="280"
                   class="example-products__image"
                 />
                 <div class="example-products__text-container">
@@ -218,7 +215,7 @@
                 alt=""
                 width="52"
                 height="56"
-                class="advantages__image"
+                class="advantages__image advantages__image--speed"
               />
               <div class="advantages__text-container">
                 <h3 class="advantages-item__title">Скорость</h3>
@@ -238,8 +235,8 @@
               <div class="advantages__text-container">
                 <h3 class="advantages-item__title">Удобство</h3>
                 <p class="advantages__text">
-                  Легко помещается и в карман,<br />
-                  и в маленькую сумочку
+                  Легко помещается и в карман,
+                  <span>и в маленькую</span> сумочку
                 </p>
               </div>
             </li>
@@ -264,12 +261,13 @@
                 width="52"
                 height="56"
                 alt=""
-                class="advantages__image"
+                class="advantages__image advantages__image--eco"
               />
               <div class="advantages__text-container">
                 <h3 class="advantages-item__title">Экологичность</h3>
                 <p class="advantages__text">
-                  Вся упаковка сделана <br />из перерабатываемых материалов
+                  Вся упаковка сделана
+                  <span>из перерабатываемых</span> материалов
                 </p>
               </div>
             </li>
@@ -323,46 +321,54 @@
                 </fieldset>
                 <fieldset class="catalog__fieldset">
                   <legend class="catalog__legend">Наличие молока</legend>
-                  <input
-                    class="catalog__radio"
-                    type="radio"
-                    id="milk-any"
-                    name="milk"
-                    checked
-                  />
-                  <label for="milk-any" class="catalog__label-radio"
-                    >Неважно</label
-                  ><br />
-                  <input
-                    class="catalog__radio"
-                    type="radio"
-                    id="milk-animal"
-                    name="milk"
-                  />
-                  <label for="milk-animal" class="catalog__label-radio"
-                    >Только животное</label
-                  ><br />
-                  <input
-                    class="catalog__radio"
-                    type="radio"
-                    id="milk-vegan"
-                    name="milk"
-                  />
-                  <label for="milk-vegan" class="catalog__label-radio"
-                    >Только растительное</label
-                  ><br />
-                  <input
-                    class="catalog__radio"
-                    type="radio"
-                    id="milk-none"
-                    name="milk"
-                    disabled
-                  />
-                  <label for="milk-none" class="catalog__label-radio"
-                    >Без молока</label
-                  >
+                  <div class="catalog__radio-container">
+                    <input
+                      class="catalog__radio"
+                      type="radio"
+                      id="milk-any"
+                      name="milk"
+                      checked
+                    />
+                    <label for="milk-any" class="catalog__label-radio"
+                      >Неважно</label
+                    >
+                  </div>
+                  <div class="catalog__radio-container">
+                    <input
+                      class="catalog__radio"
+                      type="radio"
+                      id="milk-animal"
+                      name="milk"
+                    />
+                    <label for="milk-animal" class="catalog__label-radio"
+                      >Только животное</label
+                    >
+                  </div>
+                  <div class="catalog__radio-container">
+                    <input
+                      class="catalog__radio"
+                      type="radio"
+                      id="milk-vegan"
+                      name="milk"
+                    />
+                    <label for="milk-vegan" class="catalog__label-radio"
+                      >Только растительное</label
+                    >
+                  </div>
+                  <div class="catalog__radio-container">
+                    <input
+                      class="catalog__radio"
+                      type="radio"
+                      id="milk-none"
+                      name="milk"
+                      disabled
+                    />
+                    <label for="milk-none" class="catalog__label-radio"
+                      >Без молока</label
+                    >
+                  </div>
                 </fieldset>
-                <fieldset class="catalog__fieldset">
+                <fieldset class="catalog__fieldset catalog__fieldset--checkbox">
                   <legend class="catalog__legend">Страна произрастания</legend>
                   <div class="catalog__checkbox-container">
                     <label class="catalog__checkbox switch">
@@ -483,10 +489,11 @@
                   />
                   <h3 class="catalog-item__title">Декаф Флэт Уайт</h3>
                   <p class="catalog-item__discription">
-                    Кофе без кофеина из Эфиопии с натуральным фермерским молоком
+                    Кофе без кофеина из Эфиопии
+                    <span>с натуральным</span> фермерским молоком
                   </p>
                   <div class="catalog__price-container">
-                    <span class="catalog-item__cost">225 ₽</span>
+                    <span class="catalog-item__cost">225₽</span>
                     <button class="button catalog-item__button">
                       <img
                         src="images/add-cart.svg"
@@ -508,10 +515,11 @@
                   />
                   <h3 class="catalog-item__title">Декаф Флэт Уайт</h3>
                   <p class="catalog-item__discription">
-                    Кофе без кофеина из Эфиопии с натуральным фермерским молоком
+                    Кофе без кофеина из Эфиопии
+                    <span>с натуральным</span> фермерским молоком
                   </p>
                   <div class="catalog__price-container">
-                    <span class="catalog-item__cost">225 ₽</span>
+                    <span class="catalog-item__cost">225₽</span>
                     <button class="button catalog-item__button">
                       <img
                         src="images/add-cart.svg"
@@ -533,10 +541,11 @@
                   />
                   <h3 class="catalog-item__title">Декаф Флэт Уайт</h3>
                   <p class="catalog-item__discription">
-                    Кофе без кофеина из Эфиопии с натуральным фермерским молоком
+                    Кофе без кофеина из Эфиопии
+                    <span>с натуральным</span> фермерским молоком
                   </p>
                   <div class="catalog__price-container">
-                    <span class="catalog-item__cost">225 ₽</span>
+                    <span class="catalog-item__cost">225₽</span>
                     <button class="button catalog-item__button">
                       <img
                         src="images/add-cart.svg"
@@ -557,10 +566,11 @@
                   />
                   <h3 class="catalog-item__title">Декаф Флэт Уайт</h3>
                   <p class="catalog-item__discription">
-                    Кофе без кофеина из Эфиопии с натуральным фермерским молоком
+                    Кофе без кофеина из Эфиопии
+                    <span>с натуральным</span> фермерским молоком
                   </p>
                   <div class="catalog__price-container">
-                    <span class="catalog-item__cost">225 ₽</span>
+                    <span class="catalog-item__cost">225₽</span>
                     <button class="button catalog-item__button">
                       <img
                         src="images/add-cart.svg"
@@ -581,10 +591,11 @@
                   />
                   <h3 class="catalog-item__title">Декаф Флэт Уайт</h3>
                   <p class="catalog-item__discription">
-                    Кофе без кофеина из Эфиопии с натуральным фермерским молоком
+                    Кофе без кофеина из Эфиопии
+                    <span>с натуральным</span> фермерским молоком
                   </p>
                   <div class="catalog__price-container">
-                    <span class="catalog-item__cost">225 ₽</span>
+                    <span class="catalog-item__cost">225₽</span>
                     <button class="button catalog-item__button">
                       <img
                         src="images/add-cart.svg"
@@ -605,10 +616,11 @@
                   />
                   <h3 class="catalog-item__title">Декаф Флэт Уайт</h3>
                   <p class="catalog-item__discription">
-                    Кофе без кофеина из Эфиопии с натуральным фермерским молоком
+                    Кофе без кофеина из Эфиопии
+                    <span>с натуральным</span> фермерским молоком
                   </p>
                   <div class="catalog__price-container">
-                    <span class="catalog-item__cost">225 ₽</span>
+                    <span class="catalog-item__cost">225₽</span>
                     <button class="button catalog-item__button">
                       <img
                         src="images/add-cart.svg"
@@ -647,12 +659,15 @@
         </div>
       </section>
 
-      <section class="map" id="map"></section>
+      <section class="map" id="map">
+        <h2 class="visually-hidden">Карта</h2>
+      </section>
     </main>
 
     <footer class="page__foter page-footer">
       <div class="wrapper page-footer__wrapper">
         <section class="footer__section socials">
+          <h4 class="visually-hidden">Мы в соцсетях</h4>
           <picture>
             <source
               media="(min-width: 768px)"
@@ -714,7 +729,7 @@
                 <a href="#" class="page-foter__link">Доставка</a>
               </li>
               <li class="page-foter__item">
-                <a href="#" class="page-foter__link">Способ оплаты</a>
+                <a href="#" class="page-foter__link">Способы оплаты</a>
               </li>
               <li class="page-foter__item">
                 <a href="#" class="page-foter__link">О нас</a>

@@ -8,14 +8,26 @@
 
   & [class^='swiper-button-'] {
     bottom: 50%;
+
+    @media (min-width: $tablet) and (max-width: calc($desktop - 1px)) {
+      top: calc(640px / 2);
+    }
   }
 
   & [class^='swiper-button-prev'] {
     left: -3;
+
+    @media (min-width: $tablet) {
+      left: 7;
+    }
   }
 
   & [class^='swiper-button-next'] {
     right: -3;
+
+    @media (min-width: $tablet) {
+      right: 7;
+    }
   }
 }
 
@@ -38,17 +50,18 @@
 }
 
 .swiper-pagination {
+  position: absolute;
   display: none;
-  bottom: 10px;
   text-align: center;
 
   .swiper-pagination-bullet {
-    width: 30px; /* Увеличьте ширину для создания полосочек */
+    width: 60px; /* Увеличьте ширину для создания полосочек */
     height: 4px; /* Уменьшите высоту */
     background-color: #ffffff;
     opacity: 1;
     transition: background-color 0.5s ease;
     border-radius: 0; /* Уберите закругленные углы */
+    transform: translateY(-58px);
 
     &-active {
       background-color: $violet-color;

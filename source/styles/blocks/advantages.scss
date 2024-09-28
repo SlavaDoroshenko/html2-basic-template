@@ -5,6 +5,14 @@
 
 .advantages__badge {
   margin-top: 30px;
+
+  @media (min-width: $tablet) {
+    margin-top: 20px;
+  }
+
+  @media (min-width: $desktop) {
+    margin-top: 80px;
+  }
 }
 
 .advantages__title {
@@ -15,18 +23,30 @@
   margin: 0;
   margin-top: 4px;
   margin-bottom: 36px;
+
+  @media (min-width: $tablet) {
+    font-size: 42px;
+    font-weight: 700;
+    line-height: 64px;
+    margin-top: 5px;
+  }
 }
 
 .advantages__list {
   @media (min-width: $tablet) {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(2, 1fr);
+    margin-top: 60px;
+    gap: 10px;
+    row-gap: 50px;
   }
 
   @media (min-width: $desktop) {
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: 1fr;
+    gap: 30px;
+    padding: 0 20px;
+    margin-top: 75px;
   }
 }
 
@@ -34,23 +54,57 @@
   margin-bottom: 32px;
 
   &:last-child {
-    margin-bottom: 40;
+    margin-bottom: 40px;
   }
 
   @media (min-width: $tablet) {
     display: flex;
     flex-direction: row;
     align-items: start;
+    margin-left: 10px;
+    margin-bottom: 0;
+  }
+
+  @media (min-width: $desktop) {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: 0;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
   }
 }
 
 .advantages__image {
   margin-bottom: 5px;
+
+  @media (min-width: $tablet) {
+    margin-right: 20px;
+
+    &--speed {
+      padding-top: 3px;
+    }
+
+    &--eco {
+      padding-top: 3px;
+    }
+  }
+
+  @media (min-width: $desktop) {
+    margin: 0;
+    margin-bottom: 22px;
+  }
 }
 
 .advantages__text-container {
   @media (min-width: $tablet) {
     text-align: start;
+  }
+
+  @media (min-width: $desktop) {
+    text-align: center;
   }
 }
 
@@ -62,6 +116,13 @@
   font-weight: 700;
   line-height: 32px;
   letter-spacing: 0;
+
+  @media (min-width: $tablet) {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 36px;
+    margin-bottom: 10px;
+  }
 }
 
 .advantages__text {
@@ -71,4 +132,20 @@
   font-size: 14px;
   letter-spacing: 0%;
   text-align: center;
+
+  @media (min-width: $tablet) {
+    text-align: start;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0%;
+
+    & span {
+      display: inline-block;
+    }
+  }
+
+  @media (min-width: $desktop) {
+    text-align: center;
+  }
 }

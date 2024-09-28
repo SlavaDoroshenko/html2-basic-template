@@ -8,13 +8,13 @@
 
   &--footer {
     position: relative;
-    padding: 20;
+    // padding: 20;
   }
 }
 
 .site-menu {
   display: none;
-  @media (max-width: 767px) {
+  @media (max-width: calc($tablet - 1px)) {
     grid-column: 1/3;
     grid-row: 2/6;
     box-sizing: border-box;
@@ -36,6 +36,12 @@
   @media (min-width: $tablet) {
     display: flex;
     flex-direction: row;
+    margin-left: 5px;
+  }
+
+  @media (min-width: $desktop) {
+    margin: 0 auto;
+    gap: 20px;
   }
 }
 
@@ -70,21 +76,25 @@
       border-bottom: 2px $violet-color solid;
     }
   }
+
+  // margin-left: 3px;
 }
 
 .site-menu__link {
   font-size: 12px;
   font-weight: 500;
+  // line-height: 16px;
+  letter-spacing: 0.02em;
 
-  letter-spacing: 0;
   display: flex;
   justify-content: center; // Горизонтальное выравнивание по центру
   align-items: center; // Вертикальное выравнивание по центру
   width: 100%; // Занимает всю ширину родительского элемента
   height: 100%;
-  padding: 32px 20px;
 
   @media (min-width: $tablet) {
+    padding: 32px 20px;
+
     &--active {
       color: $violet-color;
     }
