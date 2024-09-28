@@ -8,7 +8,6 @@
 
   &--footer {
     position: relative;
-    // padding: 20;
   }
 }
 
@@ -28,10 +27,25 @@
   }
 
   &--visible {
-    display: flex; /* Используем flexbox для выравнивания */
-    flex-direction: column; /* Вертикальное расположение элементов */
+    display: flex;
+    flex-direction: column;
     z-index: 100;
   }
+
+  &--active {
+    @media (max-width: calc($tablet - 1px)) {
+      grid-row: 2;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      z-index: 1;
+      width: 100%;
+      top: 0;
+    }
+  }
+
+  grid-column: 1/3;
+  grid-row: 2/6;
 
   @media (min-width: $tablet) {
     display: flex;
@@ -47,27 +61,27 @@
 
 .site-menu__item {
   @media (max-width: calc($tablet - 1px)) {
-    width: 100%; /* Занимаем всю ширину контейнера */
+    width: 100%;
     height: 60px;
     background-color: #ffffff;
-    text-align: center; /* Центрируем текст внутри элемента */
+    text-align: center;
 
     &:before,
     &:after {
       content: '';
       position: absolute;
       transform: translateX(-50%);
-      width: 100%; /* Растягиваем на всю ширину экрана */
+      width: 100%;
       height: 1px;
       background-color: #f0ebff;
     }
 
     &:before {
-      top: 0; /* Верхний бордер */
+      top: 0;
     }
 
     &:last-child:after {
-      bottom: -1px; /* Нижний бордер для последнего элемента */
+      bottom: -1px;
     }
   }
 
@@ -76,20 +90,17 @@
       border-bottom: 2px $violet-color solid;
     }
   }
-
-  // margin-left: 3px;
 }
 
 .site-menu__link {
   font-size: 12px;
   font-weight: 500;
-  // line-height: 16px;
   letter-spacing: 0.02em;
 
   display: flex;
-  justify-content: center; // Горизонтальное выравнивание по центру
-  align-items: center; // Вертикальное выравнивание по центру
-  width: 100%; // Занимает всю ширину родительского элемента
+  justify-content: center;
+  align-items: center;
+  width: 100%;
   height: 100%;
 
   @media (min-width: $tablet) {
